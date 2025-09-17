@@ -53,49 +53,53 @@ class ProblemDataForm(ModelForm):
         }
         
 
-    def clean_zipfile(self):
-        # if hasattr(self, 'zip_valid') and not self.zip_valid:
-        #     raise ValidationError(_('Your zip file is invalid!'))
-        # return self.cleaned_data['zipfile']
-        zipfile = self.cleaned_data.get('zipfile')
+    # def clean_zipfile(self):
+    #     # if hasattr(self, 'zip_valid') and not self.zip_valid:
+    #     #     raise ValidationError(_('Your zip file is invalid!'))
+    #     # return self.cleaned_data['zipfile']
+    #     zipfile = self.cleaned_data.get('zipfile')
         
-        if not zipfile:
-            return zipfile
-        try:
-            ## 확장자 앞 prefix가 쌍으로 같으면 반환
-            with ZipFile(zipfile) as z:
-                file_list = z.namelist()
-                test_cases = ProblemDataCompiler._extract_extention_zip(file_list)
+    #     if not zipfile:
+    #         return zipfile
+    #     try:
+    #         ## 확장자 앞 prefix가 쌍으로 같으면 반환
+    #         with ZipFile(zipfile) as z:
+    #             file_list = z.namelist()
+    #             test_cases = ProblemDataCompiler._extract_extention_zip(file_list)
 
-                if not test_cases:
-                    raise ValidationError("zip 파일에 유효한 테스트케이스 쌍이 없습니다.")
+    #             if not test_cases:
+    #                 raise ValidationError("zip 파일에 유효한 테스트케이스 쌍이 없습니다.")
                 
-            # 지정된 확장자만 필터링 업로드
-            # with ZipFile(zipfile) as z:
-            #     file_list = z.namelist()
-            #     in_files = [f for f in file_list if f.endswith(('.in', '.bin'))]
-            #     out_files = [f for f in file_list if f.endswith('.out')]
-            #     a_files = [f for f in file_list if f.endswith('.a')]
+    #         # 지정된 확장자만 필터링 업로드
+    #         # with ZipFile(zipfile) as z:
+    #         #     file_list = z.namelist()
+    #         #     in_files = [f for f in file_list if f.endswith(('.in', '.bin'))]
+    #         #     out_files = [f for f in file_list if f.endswith('.out')]
+    #         #     a_files = [f for f in file_list if f.endswith('.a')]
 
-            #     test_cases = []
+    #         #     test_cases = []
 
-            #     # .in/.out 쌍
-            #     if len(in_files) == len(out_files) and len(in_files) > 0:
-            #         test_cases.extend(zip(in_files, out_files))
-            #     else:
-            #         # .a와 확장자 없는 쌍
-            #         for a_file in a_files:
-            #             base = a_file[:-2]  # remove ".a"
-            #             if base in file_list:
-            #                 test_cases.append((base, a_file))
+    #         #     # .in/.out 쌍
+    #         #     if len(in_files) == len(out_files) and len(in_files) > 0:
+    #         #         test_cases.extend(zip(in_files, out_files))
+    #         #     else:
+    #         #         # .a와 확장자 없는 쌍
+    #         #         for a_file in a_files:
+    #         #             base = a_file[:-2]  # remove ".a"
+    #         #             if base in file_list:
+    #         #                 test_cases.append((base, a_file))
 
-            #     if not test_cases:
-            #         raise forms.ValidationError("ZIP 파일에 유효한 테스트케이스 쌍(.in/.out 또는 .a)이 없습니다.")
+    #         #     if not test_cases:
+    #         #         raise forms.ValidationError("ZIP 파일에 유효한 테스트케이스 쌍(.in/.out 또는 .a)이 없습니다.")
 
-        except BadZipfile:
-            raise forms.ValidationError("잘못된 ZIP 파일입니다.")
+    #     except BadZipfile:
+    #         raise forms.ValidationError("잘못된 ZIP 파일입니다.")
         
-        return zipfile
+    #     return zipfile
+    def clean_zipfile(self):
+        if hasattr(self, 'zip_valid') and not self.zip_valid:
+            raise ValidationError(_('Your zip file is invalid!'))
+        return self.cleaned_data['zipfile']
 
 
 
