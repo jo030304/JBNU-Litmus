@@ -1,0 +1,149 @@
+2026-01-07T07:08:10.653Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/home/ubuntu/.claude.json'
+2026-01-07T07:08:10.654Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769690653
+2026-01-07T07:08:10.654Z [DEBUG] Setting permissions for new file: 600
+2026-01-07T07:08:10.656Z [DEBUG] Temp file written successfully, size: 82 bytes
+2026-01-07T07:08:10.656Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769690653 to /home/ubuntu/.claude.json
+2026-01-07T07:08:10.656Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:10.669Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769690669
+2026-01-07T07:08:10.669Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:10.673Z [DEBUG] Temp file written successfully, size: 130 bytes
+2026-01-07T07:08:10.673Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:10.673Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769690669 to /home/ubuntu/.claude.json
+2026-01-07T07:08:10.673Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:10.689Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-07T07:08:10.689Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-07T07:08:10.689Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-07T07:08:10.689Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2026-01-07T07:08:10.689Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2026-01-07T07:08:10.693Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769690693
+2026-01-07T07:08:10.693Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:10.695Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-01-07T07:08:10.695Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:10.695Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769690693 to /home/ubuntu/.claude.json
+2026-01-07T07:08:10.695Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:10.697Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769690697
+2026-01-07T07:08:10.697Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:10.699Z [DEBUG] Temp file written successfully, size: 202 bytes
+2026-01-07T07:08:10.699Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:10.699Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769690697 to /home/ubuntu/.claude.json
+2026-01-07T07:08:10.699Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:10.704Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-07T07:08:10.726Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (20.3ms): ldd /bin/ls 2>/dev/null
+2026-01-07T07:08:10.739Z [DEBUG] Loading skills from directories: managed=/etc/claude-code/.claude/skills, user=/home/ubuntu/.claude/skills, project=[]
+2026-01-07T07:08:10.740Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2026-01-07T07:08:10.745Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-01-07T07:08:10.758Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2026-01-07T07:08:10.758Z [DEBUG] Looking for shell config file: /home/ubuntu/.bashrc
+2026-01-07T07:08:10.758Z [DEBUG] Snapshots directory: /home/ubuntu/.claude/shell-snapshots
+2026-01-07T07:08:10.759Z [DEBUG] Creating snapshot at: /home/ubuntu/.claude/shell-snapshots/snapshot-bash-1767769690758-x713wr.sh
+2026-01-07T07:08:10.759Z [DEBUG] Shell binary exists: true
+2026-01-07T07:08:10.759Z [DEBUG] Execution timeout: 10000ms
+2026-01-07T07:08:10.763Z [DEBUG] Writing to temp file: /home/ubuntu/.claude/todos/a3a8c67f-0093-4926-9a43-9389bed92990-agent-a3a8c67f-0093-4926-9a43-9389bed92990.json.tmp.18520.1767769690763
+2026-01-07T07:08:10.765Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-07T07:08:10.765Z [DEBUG] Renaming /home/ubuntu/.claude/todos/a3a8c67f-0093-4926-9a43-9389bed92990-agent-a3a8c67f-0093-4926-9a43-9389bed92990.json.tmp.18520.1767769690763 to /home/ubuntu/.claude/todos/a3a8c67f-0093-4926-9a43-9389bed92990-agent-a3a8c67f-0093-4926-9a43-9389bed92990.json
+2026-01-07T07:08:10.765Z [DEBUG] File /home/ubuntu/.claude/todos/a3a8c67f-0093-4926-9a43-9389bed92990-agent-a3a8c67f-0093-4926-9a43-9389bed92990.json written atomically
+2026-01-07T07:08:10.779Z [DEBUG] Total LSP servers loaded: 0
+2026-01-07T07:08:10.779Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-07T07:08:10.779Z [DEBUG] Total plugin skills loaded: 0
+2026-01-07T07:08:10.779Z [DEBUG] Total plugin commands loaded: 0
+2026-01-07T07:08:10.779Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-07T07:08:10.787Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-01-07T07:08:10.787Z [DEBUG] LSP manager initialized with 0 servers
+2026-01-07T07:08:10.787Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2026-01-07T07:08:10.788Z [DEBUG] LSP server manager initialized successfully
+2026-01-07T07:08:10.788Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-07T07:08:10.789Z [DEBUG] Attempting to auto-install official marketplace
+2026-01-07T07:08:10.792Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2026-01-07T07:08:10.934Z [DEBUG] Git remote URL: https://github.com/jo030304/JBNU-Litmus.git
+2026-01-07T07:08:10.934Z [DEBUG] Parsed repository: jo030304/JBNU-Litmus from https://github.com/jo030304/JBNU-Litmus.git
+2026-01-07T07:08:10.934Z [DEBUG] Parsed repository: jo030304/JBNU-Litmus from URL: https://github.com/jo030304/JBNU-Litmus.git
+2026-01-07T07:08:10.935Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769690935
+2026-01-07T07:08:10.935Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:10.938Z [DEBUG] Temp file written successfully, size: 287 bytes
+2026-01-07T07:08:10.938Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:10.938Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769690935 to /home/ubuntu/.claude.json
+2026-01-07T07:08:10.938Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:10.938Z [DEBUG] Added /home/ubuntu to tracked paths for repo jo030304/jbnu-litmus
+2026-01-07T07:08:10.944Z [DEBUG] Shell snapshot created successfully (3331 bytes)
+2026-01-07T07:08:10.953Z [DEBUG] Install: Starting installation process (force=false, target=undefined)
+2026-01-07T07:08:10.954Z [DEBUG] Install: Calling installLatest(force=true, target=undefined, forceReinstall=false)
+2026-01-07T07:08:11.012Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769691012
+2026-01-07T07:08:11.012Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:11.015Z [DEBUG] Temp file written successfully, size: 51935 bytes
+2026-01-07T07:08:11.015Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:11.015Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769691012 to /home/ubuntu/.claude.json
+2026-01-07T07:08:11.016Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:11.108Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769691108
+2026-01-07T07:08:11.109Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:11.115Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.2ms)
+2026-01-07T07:08:11.115Z [DEBUG] Temp file written successfully, size: 51998 bytes
+2026-01-07T07:08:11.115Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:11.115Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769691108 to /home/ubuntu/.claude.json
+2026-01-07T07:08:11.115Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:11.118Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769691118
+2026-01-07T07:08:11.118Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:11.124Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2026-01-07T07:08:11.124Z [DEBUG] Temp file written successfully, size: 52042 bytes
+2026-01-07T07:08:11.124Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:11.124Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769691118 to /home/ubuntu/.claude.json
+2026-01-07T07:08:11.124Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:11.128Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769691128
+2026-01-07T07:08:11.128Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:11.134Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.9ms)
+2026-01-07T07:08:11.134Z [DEBUG] Temp file written successfully, size: 52072 bytes
+2026-01-07T07:08:11.134Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:11.134Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769691128 to /home/ubuntu/.claude.json
+2026-01-07T07:08:11.134Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:11.138Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769691138
+2026-01-07T07:08:11.138Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:11.144Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.7ms)
+2026-01-07T07:08:11.144Z [DEBUG] Temp file written successfully, size: 52097 bytes
+2026-01-07T07:08:11.145Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:11.145Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769691138 to /home/ubuntu/.claude.json
+2026-01-07T07:08:11.145Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:11.176Z [ERROR] Error streaming, falling back to non-streaming mode: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-01-07T07:08:11.181Z [ERROR] Error in non-streaming fallback: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-01-07T07:08:11.182Z [ERROR] Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+    at validateHeaders (/$bunfs/root/claude:746:1013)
+    at buildHeaders (/$bunfs/root/claude:746:8516)
+    at async buildRequest (/$bunfs/root/claude:746:7582)
+    at async makeRequest (/$bunfs/root/claude:746:3410)
+    at processTicksAndRejections (native:7:39)
+2026-01-07T07:08:11.816Z [INFO] SSH not configured for GitHub, using HTTPS for anthropics/claude-plugins-official
+2026-01-07T07:08:11.870Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.1ms)
+2026-01-07T07:08:11.870Z [DEBUG] Checking for native installer update to version 2.0.76
+2026-01-07T07:08:11.881Z [DEBUG] Downloading native installer version 2.0.76
+2026-01-07T07:08:12.211Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769692211
+2026-01-07T07:08:12.212Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:12.216Z [DEBUG] Temp file written successfully, size: 52179 bytes
+2026-01-07T07:08:12.217Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:12.217Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769692211 to /home/ubuntu/.claude.json
+2026-01-07T07:08:12.217Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:12.714Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (12.2ms)
+2026-01-07T07:08:12.714Z [DEBUG] Added marketplace source: claude-plugins-official
+2026-01-07T07:08:12.714Z [DEBUG] Successfully auto-installed official marketplace
+2026-01-07T07:08:12.717Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769692717
+2026-01-07T07:08:12.717Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:12.719Z [DEBUG] Temp file written successfully, size: 52274 bytes
+2026-01-07T07:08:12.719Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:12.719Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769692717 to /home/ubuntu/.claude.json
+2026-01-07T07:08:12.719Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:13.933Z [DEBUG] CDN dark read succeeded for 2.0.76
+2026-01-07T07:08:30.124Z [DEBUG] [SLOW OPERATION DETECTED] fs.copyFileSync (267.2ms)
+2026-01-07T07:08:30.608Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (484.4ms)
+2026-01-07T07:08:30.676Z [DEBUG] [SLOW OPERATION DETECTED] fs.rmSync (67.0ms)
+2026-01-07T07:08:30.681Z [DEBUG] Successfully updated to version 2.0.76
+2026-01-07T07:08:30.684Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.18520.1767769710684
+2026-01-07T07:08:30.684Z [DEBUG] Preserving file permissions: 100600
+2026-01-07T07:08:30.795Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (110.9ms)
+2026-01-07T07:08:30.795Z [DEBUG] Temp file written successfully, size: 52368 bytes
+2026-01-07T07:08:30.795Z [DEBUG] Applied original permissions to temp file
+2026-01-07T07:08:30.795Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.18520.1767769710684 to /home/ubuntu/.claude.json
+2026-01-07T07:08:30.795Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-07T07:08:30.796Z [DEBUG] Native installer: Set installMethod to "native" and disabled legacy auto-updater for protection
+2026-01-07T07:08:30.796Z [DEBUG] Install: installLatest returned version=2.0.76, wasUpdated=true, lockFailed=false
+2026-01-07T07:08:30.799Z [DEBUG] Install: Setup launcher completed with 0 messages
+2026-01-07T07:08:30.799Z [DEBUG] Install: Cleaning up npm installations after successful install
+2026-01-07T07:08:32.179Z [DEBUG] Removed global npm installation of @anthropic-ai/claude-code
+2026-01-07T07:08:32.180Z [DEBUG] Cleaned up 1 npm installation(s)
+2026-01-07T07:08:32.181Z [DEBUG] Install: Shell PATH already configured
