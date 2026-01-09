@@ -1252,9 +1252,26 @@ def base_contest_ranking_list(contest, problems, queryset):
 
 
 def contest_ranking_list(contest, problems):
-    return base_contest_ranking_list(contest, problems, contest.users.filter(virtual=0)
+    # 기본 정렬로 참가자 목록 가져오기
+    participants = base_contest_ranking_list(contest, problems, contest.users.filter(virtual=0)
                                     #  .prefetch_related('user__organizations')
-                                    .order_by('is_disqualified', '-score', 'cumtime', 'tiebreaker', 'user__user__username'))
+                                    .order_by('is_disqualified', '-score', 'cumtime', 'tiebreaker'))
+
+    # Python에서 제출 횟수 추가 및 재정렬
+    for participant in participants:
+        participant.submission_count = participant.participation.submissions.count()
+
+    # 정렬: 실격 여부 → 점수 → 시간 → 타이브레이커 → 제출 횟수 (내림차순) → 학번
+    participants.sort(key=lambda p: (
+        p.participation.is_disqualified,
+        -p.points,
+        p.cumtime,
+        p.tiebreaker,
+        -p.submission_count,  # 제출 많은 순
+        p.user.user.username  # 학번순
+    ))
+
+    return participants
 
 
 def get_contest_ranking_list(request, contest, participation=None, ranking_list=contest_ranking_list,
@@ -1515,4 +1532,3 @@ class ContestDetailCodeDownload(View):
 
         except Exception as e:
             return HttpResponseServerError(f"An error occurred: {str(e)}")
-        

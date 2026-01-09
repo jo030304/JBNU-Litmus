@@ -1515,4 +1515,3 @@ class ContestDetailCodeDownload(View):
 
         except Exception as e:
             return HttpResponseServerError(f"An error occurred: {str(e)}")
-        

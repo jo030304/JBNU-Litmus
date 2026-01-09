@@ -1254,7 +1254,7 @@ def base_contest_ranking_list(contest, problems, queryset):
 def contest_ranking_list(contest, problems):
     return base_contest_ranking_list(contest, problems, contest.users.filter(virtual=0)
                                     #  .prefetch_related('user__organizations')
-                                    .order_by('is_disqualified', '-score', 'cumtime', 'tiebreaker', 'user__user__username'))
+                                    .order_by('is_disqualified', '-score', 'cumtime', 'tiebreaker'))
 
 
 def get_contest_ranking_list(request, contest, participation=None, ranking_list=contest_ranking_list,
@@ -1515,4 +1515,3 @@ class ContestDetailCodeDownload(View):
 
         except Exception as e:
             return HttpResponseServerError(f"An error occurred: {str(e)}")
-        

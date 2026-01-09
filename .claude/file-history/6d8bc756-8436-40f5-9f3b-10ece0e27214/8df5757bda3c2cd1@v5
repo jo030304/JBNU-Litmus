@@ -1261,9 +1261,7 @@ def get_contest_ranking_list(request, contest, participation=None, ranking_list=
                              show_current_virtual=True, ranker=ranker):
     problems = list(contest.contest_problems.select_related('problem').defer('problem__description').order_by('order'))
 
-    # 순위 번호를 연속적으로 부여 (같은 점수여도 각각 다른 번호)
-    ranked_users = ranking_list(contest, problems)
-    users = ((i + 1, user) for i, user in enumerate(ranked_users))
+    users = ranker(ranking_list(contest, problems), key=attrgetter('points', 'cumtime', 'tiebreaker'))
 
     if show_current_virtual:
         if participation is None and request.user.is_authenticated:
@@ -1515,4 +1513,3 @@ class ContestDetailCodeDownload(View):
 
         except Exception as e:
             return HttpResponseServerError(f"An error occurred: {str(e)}")
-        
