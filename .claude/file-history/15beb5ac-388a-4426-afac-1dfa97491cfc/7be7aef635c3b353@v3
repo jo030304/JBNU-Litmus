@@ -294,16 +294,10 @@
 			color: #2E5DA8;
 			border-radius: 8px;
 			padding: 4px 15px;
-			position: relative;
-			z-index: 100;
 		}
 		#content .object-tools li a:hover, #content .list-tools li a:hover {
 			background-color: #E6E7EA;
 			color: #2E5DA8;
-		}
-		#content .object-tools, #content .list-tools {
-			position: relative;
-			z-index: 100;
 		}
 		#content .datetimeshortcuts {
 			margin-right: 30px;
@@ -315,32 +309,12 @@
 			columns: 10em 4 !important;
 		}
 
-		/* 관리자 페이지 전체를 회색으로 처리 */
-		html {
+		/* 관리자 페이지 전체 여백 회색 처리 (문제, 언어, 이슈 등 모든 목록) */
+		#changelist {
 			background-color: #F2F2F2 !important;
-		}
-		body {
-			background-color: #F2F2F2 !important;
-		}
-		#wrapper {
-			background-color: #F2F2F2 !important;
-			min-height: 100vh !important;
-		}
-		#container {
-			background-color: #F2F2F2 !important;
-			min-height: 100vh !important;
-		}
-		#content {
-			background-color: #F2F2F2 !important;
-			min-height: calc(100vh - 100px) !important;
 		}
 		#content-main {
 			background-color: #F2F2F2 !important;
-			min-height: 70vh !important;
-		}
-		#changelist {
-			background-color: #F2F2F2 !important;
-			min-height: 70vh !important;
 		}
 		.paginator {
 			background-color: #F2F2F2 !important;
@@ -351,14 +325,30 @@
 		.results {
 			background-color: #F2F2F2 !important;
 		}
+		#container {
+			background-color: #F2F2F2 !important;
+		}
+		body {
+			background-color: #F2F2F2 !important;
+		}
+		/* 테이블 내부 및 행 배경 회색 처리 */
+		#result_list tbody tr {
+			background-color: #F2F2F2 !important;
+		}
+		#result_list tbody tr:nth-child(odd) {
+			background-color: #F2F2F2 !important;
+		}
+		#result_list tbody tr:nth-child(even) {
+			background-color: #F2F2F2 !important;
+		}
+		.row1, .row2 {
+			background-color: #F2F2F2 !important;
+		}
+		/* 테이블 전체 영역 */
 		#changelist-form {
 			background-color: #F2F2F2 !important;
 		}
 		.actions {
-			background-color: #F2F2F2 !important;
-		}
-		/* 푸터도 회색으로 */
-		#footer {
 			background-color: #F2F2F2 !important;
 		}
 	</style>
