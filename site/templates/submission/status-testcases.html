@@ -384,11 +384,11 @@ function confirm_rejudge() {
                         <div style="display: flex; align-items: center; gap: 12px;">
                             {% if submission.result == 'AC' %}
                                 <span class="result-badge badge-success">
-                                    <i class="fa fa-check-circle"></i> 정답 (AC)
+                                    <i class="fa fa-check-circle"></i> 정답
                                 </span>
                             {% elif submission.result in ['WA', 'TLE', 'MLE', 'RTE', 'OLE', 'IR'] %}
                                 <span class="result-badge badge-failure">
-                                    <i class="fa fa-times-circle"></i> 오답 ({{ submission.result }})
+                                    <i class="fa fa-times-circle"></i> 오답
                                 </span>
                             {% else %}
                                 <span class="result-badge badge-other">
@@ -419,6 +419,10 @@ function confirm_rejudge() {
                                 {{ _('다시 제출하기') }}
                             </a>
                             {% endif %}
+                            <a href="{{ url('user_submissions', submission.problem.code, request.user.username) }}" class="action-btn btn-my-submissions">
+                                <i class="fa fa-list"></i>
+                                {{ _('내 제출물 보기') }}
+                            </a>
                         </div>
                     </div>
                 </div>
