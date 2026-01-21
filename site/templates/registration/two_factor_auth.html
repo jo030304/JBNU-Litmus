@@ -95,7 +95,7 @@
             {% endif %}
         </form>
         {% if not is_hardcore %}
-            <p class="totp-or-scratch-code-panel-message">{{ _('If you lost your authentication device and are unable to use your scratch codes, please contact us at %(email)s.', email=SITE_ADMIN_EMAIL)|urlize }}</p>
+            <p class="totp-or-scratch-code-panel-message">{{ _('If you lost your authentication device and are unable to use your scratch codes, please contact an administrator.') }}</p>
         {% endif %}
     </div>
 {% endblock %}

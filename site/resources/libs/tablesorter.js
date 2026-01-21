@@ -13,7 +13,7 @@
 * @type jQuery
 * @name tablesorter (FORK)
 * @cat Plugins/Tablesorter
-* @author Christian Bach - christian.bach@polyester.se
+* @author Christian Bach
 * @contributor Rob Garrison - https://github.com/Mottie/tablesorter
 */
 /*jshint browser:true, jquery:true, unused:false, expr: true */
