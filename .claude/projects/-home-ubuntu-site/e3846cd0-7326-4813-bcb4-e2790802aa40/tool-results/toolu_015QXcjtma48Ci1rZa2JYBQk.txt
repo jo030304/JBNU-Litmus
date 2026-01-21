@@ -1,0 +1,68 @@
+     1→{% extends "reversion/change_list.html" %}
+     2→{% load i18n admin_urls %}
+     3→
+     4→{% block object-tools-items %}
+     5→    <li>
+     6→        <a href="#" class="delete-link" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
+     7→            <span class="text">선택 삭제</span>
+     8→        </a>
+     9→        <form method="post" action="{% url opts|admin_urlname:'changelist' %}" id="delete-form" style="display: none;">
+    10→            {% csrf_token %}
+    11→            <input type="hidden" name="action" value="delete_selected">
+    12→        </form>
+    13→    </li>
+    14→    {{ block.super }}
+    15→{% endblock %}
+    16→
+    17→{% block extrahead %}
+    18→    {{ block.super }}
+    19→
+    20→    <script type="text/javascript">
+    21→        // 체크박스 클릭 시 선택된 항목만 폼에 추가하는 함수
+    22→        function toggleSelectCheckbox(checkbox, pk) {
+    23→            var form = document.getElementById('delete-form');
+    24→            if (checkbox.checked) {
+    25→                var input = document.createElement('input');
+    26→                input.type = 'hidden';
+    27→                input.name = '_selected_action';
+    28→                input.value = pk;
+    29→                input.id = 'selected_' + pk;
+    30→                form.appendChild(input);
+    31→            } else {
+    32→                var input = document.getElementById('selected_' + pk);
+    33→                if (input) {
+    34→                    form.removeChild(input);
+    35→                }
+    36→            }
+    37→        }
+    38→
+    39→        // 전체 선택/해제 체크박스 기능
+    40→        function toggleSelectAll(checkbox) {
+    41→            var checkboxes = document.querySelectorAll('.action-select');
+    42→            checkboxes.forEach(function(cb) {
+    43→                cb.checked = checkbox.checked;
+    44→                toggleSelectCheckbox(cb, cb.value);
+    45→            });
+    46→        }
+    47→
+    48→        // 초기화 및 이벤트 리스너 설정
+    49→        window.onload = function() {
+    50→            var toggleAll = document.getElementById('action-toggle');
+    51→            toggleAll.addEventListener('change', function() {
+    52→                toggleSelectAll(this);
+    53→            });
+    54→
+    55→            var checkboxes = document.querySelectorAll('.action-select');
+    56→            checkboxes.forEach(function(cb) {
+    57→                cb.addEventListener('change', function() {
+    58→                    toggleSelectCheckbox(this, this.value);
+    59→                });
+    60→            });
+    61→        };
+    62→    </script>
+    63→{% endblock %}
+    64→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

@@ -1,0 +1,9 @@
+/home/ubuntu/dmojsite/lib/python3.10/site-packages/PIL/ImageFilter.py
+/home/ubuntu/dmojsite/lib/python3.10/site-packages/PIL/__pycache__/ImageFilter.cpython-310.pyc
+/home/ubuntu/.local/lib/python3.10/site-packages/PIL/ImageFilter.py
+/home/ubuntu/.local/lib/python3.10/site-packages/PIL/__pycache__/ImageFilter.cpython-310.pyc
+/home/ubuntu/.local/lib/python3.10/site-packages/django/contrib/admin/static/admin/js/SelectFilter2.js
+/home/ubuntu/dmojsite/lib/python3.10/site-packages/django/contrib/admin/static/admin/js/SelectFilter2.js
+/home/ubuntu/tmp/static/admin/js/SelectFilter2.js
+/home/ubuntu/.vscode-server/extensions/ms-python.vscode-pylance-2025.10.4/dist/typeshed-fallback/stdlib/xml/dom/NodeFilter.pyi
+/home/ubuntu/.vscode-server/extensions/ms-python.python-2026.0.0-linux-x64/python_files/lib/jedilsp/jedi/third_party/typeshed/stdlib/2and3/xml/dom/NodeFilter.pyi

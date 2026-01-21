@@ -1,0 +1,27 @@
+[
+  {
+    "content": "#FFF를 #FFFFFF로 6글자 통일",
+    "status": "in_progress",
+    "activeForm": "#FFF를 #FFFFFF로 6글자 통일 중"
+  },
+  {
+    "content": ".breadcrumbs border-radius 제거",
+    "status": "pending",
+    "activeForm": ".breadcrumbs border-radius 제거 중"
+  },
+  {
+    "content": ".module border-radius 제거",
+    "status": "pending",
+    "activeForm": ".module border-radius 제거 중"
+  },
+  {
+    "content": ".module h2 border-radius 제거",
+    "status": "pending",
+    "activeForm": ".module h2 border-radius 제거 중"
+  },
+  {
+    "content": "기타 파일들 border-radius 제거",
+    "status": "pending",
+    "activeForm": "기타 파일들 border-radius 제거 중"
+  }
+]

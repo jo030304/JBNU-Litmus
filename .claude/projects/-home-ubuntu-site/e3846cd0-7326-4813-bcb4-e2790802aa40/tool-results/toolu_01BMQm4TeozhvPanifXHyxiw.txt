@@ -1,0 +1,13 @@
+Found 12 files
+site/templates/admin/base.html
+site/templates/admin/judge/contest/problem_tree_manager.html
+site/templates/admin/input_filter/input_filter_contest_participation.html
+site/templates/admin/input_filter/input_filter_contest.html
+site/templates/admin/input_filter/input_filter_problem.html
+site/templates/admin/input_filter/input_filter_profile.html
+site/templates/admin/input_filter/input_filter_submission.html
+site/templates/admin/input_filter/input_filter_user.html
+site/templates/admin/input_filter/input_filter_comment.html
+site/templates/admin/judge/contest/change_list.html
+site/templates/admin/judge/problem/change_form.html
+site/templates/admin/judge/problem/change_list.html

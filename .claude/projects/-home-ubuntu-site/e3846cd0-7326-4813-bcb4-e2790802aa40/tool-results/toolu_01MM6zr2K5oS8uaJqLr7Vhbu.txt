@@ -1,0 +1,493 @@
+     1→<head>
+     2→  <link 
+     3→    rel="stylesheet" 
+     4→    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     5→  >
+     6→</head>
+     7→{% load wpadmin_menu_tags i18n %}
+     8→{% block extrastyle %}
+     9→<style>
+    10→    #adminmenuwrap {
+    11→        background-color: #FFFFFF;
+    12→        width: 180px;
+    13→        margin-top: 10px
+    14→    }
+    15→    #adminmenuwrap::after{
+    16→        content: "";
+    17→        position: absolute;
+    18→        top: 0;
+    19→        right: 0;
+    20→        width: 3px;
+    21→        height: 100%;
+    22→        background: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    23→        pointer-events: none;
+    24→    }
+    25→    #adminmenu {
+    26→        background-color: #FFFFFF;
+    27→        width: 180px;
+    28→    }
+    29→    #adminmenu li {
+    30→        background-color: #FFFFFF;
+    31→        margin-bottom: 5px;
+    32→    }
+    33→    #adminmenu .wp-menu-top > a,
+    34→    #adminmenu .wp-menu-top > .wp-menu-image > a{
+    35→        color: #717171 !important;  
+    36→        background-color:transparent;
+    37→        transition: background-color 0.3s ease, color 0.3s ease;
+    38→        border-radius:12px;
+    39→        padding-right:3px;
+    40→    }
+    41→    #adminmenu .wp-menu-top:hover > a{
+    42→        background-color: #CCDAF4;
+    43→        color: #167CAF !important; 
+    44→    }
+    45→    #adminmenu .wp-menu-top:hover > a.wp-add-url {
+    46→        background-color: transparent;
+    47→    }
+    48→    #adminmenu .wp-menu-top:hover > .wp-menu-image > a{
+    49→        color: #167CAF !important;
+    50→    }
+    51→    #adminmenu .wp-submenu-wrap ul,
+    52→    #adminmenu .wp-submenu-wrap ul li {
+    53→        background-color: #3A5C7E;
+    54→        width: 180px;
+    55→    }
+    56→    #adminmenu .wp-submenu-wrap ul li:hover {
+    57→        color: #167CAF;
+    58→    }
+    59→    #adminmenu .wp-submenu-wrap ul li:hover a {
+    60→        color: #167CAF !important;
+    61→    }
+    62→    #adminmenu li.wp-menu-open {
+    63→        background-color: #EFF5FC !important;
+    64→        margin-right: 3px;
+    65→        border-radius: 12px;
+    66→    }
+    67→    #adminmenu li.wp-menu-open a {
+    68→        background-color: #CCDAF4;
+    69→    }
+    70→    #adminmenu li.wp-menu-open a, #adminmenu li.wp-menu-open .wp-menu-image > a{
+    71→        color: #167CAF !important;
+    72→        margin-right: 0;
+    73→    }
+    74→    #adminmenu li.wp-menu-open a.wp-add-url{
+    75→        padding-right: 15px;
+    76→    }
+    77→    #adminmenu li.wp-menu-top.wp-menu-open a {
+    78→        color: #5C95D9;
+    79→    }
+    80→    #adminmenu .wp-menu-top > a {
+    81→        padding-top: 12px;
+    82→        padding-bottom: 12px;
+    83→    }
+    84→    #adminmenu .wp-menu-top > a.wp-add-url {
+    85→        padding-right: 15px;
+    86→    }
+    87→    #adminmenu .wp-menu-top.wp-menu-open > a.wp-add-url {
+    88→        padding-right: 15px;
+    89→    }
+    90→    .wp-menu .wp-menu-top .wp-menu-image a {
+    91→        padding-left: 5px;
+    92→        padding-top: 4px;
+    93→        padding-bottom: 4px;
+    94→    }
+    95→    .wp-menu .wp-menu-top.wp-menu-open>a, .wp-menu .wp-menu-top.wp-menu-open .wp-menu-image a {
+    96→        background: none;
+    97→        color: #5C95D9;
+    98→    }
+    99→    .wp-menu .wp-submenu .wp-submenu-wrap ul {
+   100→        padding: 7px 0 0;
+   101→    }
+   102→    .wp-menu .wp-submenu .wp-submenu-wrap ul li.wp-has-add-url > a:first-child {
+   103→        color: #FFFFFF;
+   104→    }
+   105→    .wp-menu .wp-submenu .wp-submenu-wrap ul li.wp-has-add-url > a.wp-add-url {
+   106→        padding-right: 25px;
+   107→        color: #FFFFFF;
+   108→    }
+   109→    #adminmenu .wp-menu-top.wp-menu-open>a:after, #adminmenu .wp-menu-top.wp-menu-open .wp-menu-image a:after {
+   110→        border: none;
+   111→    }
+   112→    #adminmenu .wp-menu-top > a {
+   113→        color: #FFFFFF;
+   114→    }
+   115→    #adminmenu .wp-submenu-wrap{
+   116→        background-color : #EFF5FC;
+   117→        width:177px;
+   118→        border-radius: 0 0 12px 12px;
+   119→        overflow:hidden;
+   120→        box-shadow: none !important;
+   121→        border:none !important;
+   122→    }
+   123→    #adminmenu .wp-menu-not-open .wp-submenu-wrap{
+   124→        background-color : #EFF5FC;
+   125→        width:177px;
+   126→        border-radius: 8px;
+   127→        overflow:hidden;
+   128→        box-shadow: none !important;
+   129→        border:none !important;
+   130→    }
+   131→    #adminmenu .wp-submenu-wrap ul li a {
+   132→        background-color:transparent !important;
+   133→        transition: color 0.3s ease;
+   134→        color: #717171 !important;
+   135→    }
+   136→    #adminmenu .wp-submenu-wrap ul, #adminmenu .wp-submenu-wrap ul li {
+   137→        background-color:#EFF5FC;
+   138→    }
+   139→    #adminbarwrap .wp-menu  .wp-menu-top .wp-menu-image a {
+   140→        padding: 0;
+   141→    }
+   142→    #adminbarwrap .wp-menu  .wp-menu-top .wp-menu-image a .wp-small-gravatar {
+   143→        width: 22px;
+   144→        height: auto;
+   145→        border-radius: 50%;
+   146→        margin-bottom: 2px;
+   147→    }
+   148→    #adminbarwrap #adminbar .wp-menu-top > a {
+   149→        color: white;
+   150→    }
+   151→    #adminbarwrap #adminbar .wp-menu-top {
+   152→        margin-right: 10px;
+   153→    }
+   154→    #adminbar  .wp-menu-top:hover > a,
+   155→    #adminbar  .wp-menu-top:hover > .wp-menu-image > a{
+   156→        background-color: transparent !important;
+   157→    }
+   158→    .wp-submenu .wp-submenu-wrap ul {
+   159→        padding: 7px 5px 8px;
+   160→        margin: 0;
+   161→        list-style: none;
+   162→    }
+   163→    #adminmenu .wp-menu-top > a, #adminmenu .wp-menu-top > .wp-menu-image > a {
+   164→        padding-right: 0;
+   165→        margin-right: 3px;
+   166→    }
+   167→</style>
+   168→<style>
+   169→        li{
+   170→            margin-left:5px;
+   171→        }
+   172→        .deletelink{
+   173→            background-color: rgba(0,0,0,0.05) !important;
+   174→            color: #0074a2 !important;
+   175→            margin-left: 5px;
+   176→        }
+   177→        #content-main #changelist-form .actions-and-paginator .actions .button{
+   178→            background-color : #E6E7EA;
+   179→            box-shadow : none;
+   180→            border: 1px solid #C4C4C4;
+   181→            position:relative;
+   182→            border-radius: 8px;
+   183→            left:10px;
+   184→            width:43px;
+   185→            height:28px;
+   186→            font-size: 13px;
+   187→            line-height: 22px;
+   188→            display: flex;
+   189→            justify-content: center; /* 가로 중앙 */
+   190→            align-items: end;     /* 세로 중앙 */
+   191→        }
+   192→        #content-main #changelist-form .actions-and-paginator .paginator span.this-page{
+   193→            background-color: #4C79B6 !important;
+   194→            color: white;
+   195→            border-radius: 6px;
+   196→            display: inline-block;
+   197→        }
+   198→        #content-main #changelist-form .actions-and-paginator .paginator a{
+   199→            background-color: #E6E7EA !important;
+   200→            color: black !important;
+   201→            border-radius: 8px;
+   202→            display: inline-block;
+   203→        } 
+   204→        #content-main #changelist-form .actions-and-paginator .paginator a:hover{
+   205→            background-color: #A9B9D5!important;
+   206→            color: black !important;
+   207→            border-radius: 8px;
+   208→            display: inline-block;
+   209→        }
+   210→        #content-main #changelist-form .actions-and-paginator .paginator .showall{
+   211→            background-color: #E6E7EA !important;
+   212→            border: 1px solid var(--border-color);
+   213→            font-size: 13px;
+   214→        }
+   215→        #container #content {
+   216→            position: relative;
+   217→        }
+   218→        #container #content .list-tools {
+   219→            position: absolute;
+   220→            right: 36px; 
+   221→            top: 20px;
+   222→            display: flex;
+   223→        }
+   224→        #container #content .list-tools {
+   225→            display: flex;
+   226→            justify-content: flex-end;
+   227→            margin-left:auto;
+   228→        }
+   229→        #container #content .list-tools li {
+   230→            list-style: none;
+   231→        }
+   232→        #container #content .list-tools li a{
+   233→            color: white;
+   234→            margin: 0px;
+   235→            background: transparent;
+   236→            padding: 7px 7px;
+   237→        }
+   238→        #content .list-tools li a.add-new {
+   239→            font-weight: 400;
+   240→        }
+   241→        #container #content .list-tools li:has(a.add-new){
+   242→            background-color: #3A6FD9;
+   243→            border-radius: 8px;
+   244→            margin-right: 8px;
+   245→        }
+   246→        #container #content .list-tools li:has(a.delete-link){
+   247→            background-color: #E53935;
+   248→            border-radius: 8px;
+   249→            margin-right: 8px;
+   250→        }
+   251→        #container #content .list-tools li:has(a.recoverlink){
+   252→            background-color: #2BAE66;
+   253→            border-radius: 8px;
+   254→        }
+   255→        #content #content-main #changelist{
+   256→            position: relative;
+   257→        }
+   258→        #content #content-main #changelist #changelist-filter{
+   259→
+   260→        }
+   261→        #content #content-main #changelist .xfull {
+   262→            position: absolute;
+   263→            top: 0;   
+   264→            left: 30px;
+   265→        }
+   266→        #content #content-main #changelist .xfull li{
+   267→            border : 0.5px solid var(--border-color);
+   268→            background-color : #E6E7EA;
+   269→            border-radius : 8px;
+   270→            padding: 4px 15px;
+   271→        }
+   272→        #content #content-main #changelist .xfull li a{
+   273→            display: flex;
+   274→            justify-content: center;
+   275→            align-items: center;
+   276→            width: 100%;
+   277→            color: #2E5DA8;
+   278→            font-size:13px;
+   279→            font-weight:500;
+   280→        }
+   281→        #content #content-main #changelist #changelist-filter form {
+   282→            display: flex; 
+   283→            gap: 25px; 
+   284→            margin-top: 30px;
+   285→            border: 0.5px, solid, var(--border-color);
+   286→            border-radius:8px;
+   287→            background-color:#E6E7EA;
+   288→            align-items: center;
+   289→            padding-left:15px;
+   290→        }
+   291→        #content #content-main #changelist #changelist-filter form label {
+   292→            display: flex;
+   293→            flex-direction: column;
+   294→            width:259px; 
+   295→            margin-bottom: 8px;
+   296→            margin-top:14px;
+   297→            font-size:14px;
+   298→            font-weight:500;
+   299→        }
+   300→        #content #content-main #changelist #changelist-filter form button:not(label input){
+   301→            background-color: #4C79B6;
+   302→            border-radius:8px;
+   303→            color: white;
+   304→            margin-left : auto;
+   305→            margin-right : 12px;
+   306→            align-self: center;
+   307→            height: 30px;
+   308→            box-shadow:none;
+   309→            border:none;
+   310→        }
+   311→        #content #content-main #changelist #changelist-filter form label select,
+   312→        #content #content-main #changelist #changelist-filter form label input {
+   313→            display: block;
+   314→            margin-top: 5px;
+   315→            width: 100%;
+   316→            font-size:14px;
+   317→            height: 30px;
+   318→        }
+   319→
+   320→        #content #content-main #changelist #changelist-form .results #result_list thead th{
+   321→            background-color: #E6E7EA;
+   322→        }
+   323→        #content #content-main #changelist #changelist-form .results #result_list tbody tr{
+   324→            background-color: white;
+   325→        }
+   326→        #content #content-main #changelist #changelist-form .results #result_list {
+   327→            border-collapse: collapse;
+   328→            width: 100%;
+   329→            border : 1px solid var(--border-color);
+   330→            border-radius: 8px;
+   331→            border-collapse: separate;
+   332→            overflow: hidden;
+   333→        }
+   334→        #content #content-main #changelist #changelist-form .results #result_list th,
+   335→        #content #content-main #changelist #changelist-form .results #result_list td {
+   336→
+   337→            border-bottom: 1px solid var(--border-color);
+   338→            border-color: var(--border-color);
+   339→        }
+   340→        #content #content-main #changelist #changelist-form table input[type=button]{
+   341→        background-color: #4C79B6 ;
+   342→        border: 1px solid #D9D9D96E;
+   343→        border-radius: 8px;
+   344→        width: 62px;
+   345→        height: 23px;
+   346→        color: #FFFFFF;
+   347→        box-shadow: 0px 4px 4px #00000040;
+   348→        }
+   349→        #content #changelist .actions-and-paginator .paginator{
+   350→            float: right;
+   351→            background: none;
+   352→            border: none;
+   353→            padding: 25px 0 5px 0;
+   354→            font-size: 12px;
+   355→        }
+   356→        #content #changelist .actions-and-paginator .actions {
+   357→            float: left;
+   358→            margin: 0 !important;
+   359→            padding: 25px 0 5px 0;
+   360→            display: flex;
+   361→            justify-content: center; /* 가로 */
+   362→            align-items: center;     /* 세로 */
+   363→        }
+   364→        #content #changelist .actions-and-paginator label {
+   365→            
+   366→            display: flex;
+   367→            justify-content: center; /* 가로 */
+   368→            align-items: center;     /* 세로 */
+   369→        }
+   370→        #content #changelist .actions-and-paginator .actions select {
+   371→            border : 1px solid var(--border-color);
+   372→            width: 259px;
+   373→            height: 30px;
+   374→            border-radius: 8px;
+   375→        }
+   376→
+   377→    </style>
+   378→{% endblock %}
+   379→{% if is_user_allowed and menu.children %}
+   380→	<div id="adminmenuback"></div>
+   381→	<div id="adminmenuwrap">
+   382→		<ul id="adminmenu" class="wp-menu" role="navigation">
+   383→			<br/>
+   384→			{% for item in menu.children %}
+   385→				{% if item.is_user_tools %}
+   386→					{% wpadmin_render_user_tools item forloop.first forloop.last %}
+   387→				{% else %}
+   388→					{% wpadmin_render_menu_top_item item forloop.first forloop.last %}
+   389→				{% endif %}
+   390→			{% endfor %}
+   391→			<li class="hide-if-no-js wp-menu-top wp-has-submenu wp-menu-not-open wp-no-url wp-menu-tools">
+   392→				<div class="wp-menu-image"><a aria-label="{% trans 'Menu options' %}" title="{% trans 'Menu options' %}" href="javascript:;"><i class="fa fa-fw fa-cog"></i></a></div>
+   393→				<a href="javascript:;" title="{% trans 'Menu options' %}">{% trans 'Menu options' %}</a>
+   394→				<div class="wp-submenu">
+   395→					<div class="wp-submenu-wrap">
+   396→						<div class="wp-submenu-head">{% trans 'Menu options' %}</div>
+   397→						<ul>
+   398→							<li class="wp-menu-tool" id="collapse-menu" data-text-collapsed="{% trans "Expand menu" %}" data-text-expanded="{% trans "Collapse menu" %}">
+   399→								<a href="javascript:;">{% trans "Collapse menu" %}</a>
+   400→							</li>
+   401→						</ul>
+   402→					</div>
+   403→				</div>
+   404→			</li>
+   405→		</ul>
+   406→	</div>
+   407→{% endif %}
+   408→
+   409→<script>
+   410→// document.addEventListener("DOMContentLoaded", function () {
+   411→//     setTimeout(function () {
+   412→//         const links = document.querySelectorAll(".add-new");
+   413→//         links.forEach(link => {
+   414→//             if (link.textContent.includes("추가")) {
+   415→//                 link.innerHTML = `<i class="fa fa-plus" ></i> ${text}`;
+   416→//             }
+   417→//         });
+   418→//     }, 100);  // 0.1초 후 실행
+   419→//     });
+   420→//         document.addEventListener("DOMContentLoaded", function () {
+   421→//     setTimeout(function () {
+   422→//         const links = document.querySelectorAll(".delete-link");
+   423→//         links.forEach(link => {
+   424→//             if (link.textContent.includes("선택 삭제")) {
+   425→//                 link.innerHTML = `<i class="fa-regular fa-trash-can"></i>  ${text}`;
+   426→//             }
+   427→//         });
+   428→//     }, 100);  // 0.1초 후 실행
+   429→//     });
+   430→document.addEventListener("DOMContentLoaded", function () {
+   431→        const links = document.querySelectorAll(".add-new");
+   432→        links.forEach(link => {
+   433→            const text = link.textContent.trim();
+   434→            if (text.startsWith("추가")) {
+   435→                link.innerHTML = `<i class="fa fa-plus" ></i> ${text}`;
+   436→            }
+   437→        });
+   438→});
+   439→
+   440→document.addEventListener("DOMContentLoaded", function () {
+   441→        const links = document.querySelectorAll(".delete-link");
+   442→        links.forEach(link => {
+   443→            const text = link.textContent.trim();
+   444→            if (text.startsWith("선택 삭제") ) {
+   445→                link.innerHTML = `<i class="fa-regular fa-trash-can"></i> ${text}`;
+   446→            }
+   447→        });
+   448→});
+   449→document.addEventListener("DOMContentLoaded", function () {
+   450→        const links = document.querySelectorAll(".recoverlink");
+   451→        links.forEach(link => {
+   452→            const text = link.textContent.trim();
+   453→            if (text.startsWith("삭제된") ) {
+   454→                link.innerHTML = `<i class="fa-solid fa-trash-can-arrow-up"></i> ${text}`;
+   455→            }
+   456→        });
+   457→});
+   458→document.addEventListener("DOMContentLoaded", function () {
+   459→    document.querySelectorAll('select[name="action"] option').forEach(option => {
+   460→        if (option.textContent.trim() === "---------") {
+   461→            option.textContent = "작업을 선택하세요";
+   462→        }
+   463→    });
+   464→}); 
+   465→document.addEventListener('DOMContentLoaded', function() {
+   466→    const showAllLink = document.querySelector('a.showall');
+   467→    if (showAllLink) {
+   468→    showAllLink.textContent = '모두보기';
+   469→    }
+   470→});
+   471→/*셀렉트 카운터 숨기기 */ 
+   472→document.addEventListener("DOMContentLoaded", function () {
+   473→    document.querySelectorAll(".actions span.all, .actions span.action-counter").forEach(el => {
+   474→        el.style.display = "none";
+   475→    });
+   476→
+   477→    const toggle = document.getElementById("action-toggle");
+   478→    if (toggle && toggle.nextElementSibling && toggle.nextElementSibling.tagName === "SPAN") {
+   479→        toggle.nextElementSibling.style.display = "none";
+   480→    }
+   481→
+   482→    document.querySelectorAll('select[name="action"] option').forEach(option => {
+   483→        if (option.textContent.trim() === "---------") {
+   484→            option.textContent = "작업을 선택하세요";
+   485→        }
+   486→    });
+   487→});
+   488→</script>
+   489→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

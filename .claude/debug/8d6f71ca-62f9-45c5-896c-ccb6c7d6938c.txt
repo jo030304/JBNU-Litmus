@@ -1,0 +1,644 @@
+2026-01-19T08:12:25.296Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-19T08:12:25.296Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-19T08:12:25.296Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-19T08:12:25.303Z [DEBUG] LSP server manager initialized successfully
+2026-01-19T08:12:25.303Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-19T08:12:25.303Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-19T08:12:25.319Z [DEBUG] Stats cache stale (2026-01-15), processing 2026-01-16 to 2026-01-18 in background
+2026-01-19T08:12:25.343Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (22.1ms): ldd /bin/ls 2>/dev/null
+2026-01-19T08:12:25.347Z [DEBUG] Failed to acquire lock for 2.0.76: Error: EISDIR: illegal operation on a directory, rename '/home/ubuntu/.local/state/claude/locks/2.0.76.lock.tmp.286312.1768810345344' -> '/home/ubuntu/.local/state/claude/locks/2.0.76.lock'
+2026-01-19T08:12:25.356Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/ubuntu/.claude/skills, project=[]
+2026-01-19T08:12:25.363Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-01-19T08:12:25.380Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2026-01-19T08:12:25.380Z [DEBUG] Looking for shell config file: /home/ubuntu/.bashrc
+2026-01-19T08:12:25.380Z [DEBUG] Snapshots directory: /home/ubuntu/.claude/shell-snapshots
+2026-01-19T08:12:25.381Z [DEBUG] Creating snapshot at: /home/ubuntu/.claude/shell-snapshots/snapshot-bash-1768810345380-jw05sl.sh
+2026-01-19T08:12:25.381Z [DEBUG] Shell binary exists: true
+2026-01-19T08:12:25.381Z [DEBUG] Execution timeout: 10000ms
+2026-01-19T08:12:25.385Z [DEBUG] Writing to temp file: /home/ubuntu/.claude/todos/8d6f71ca-62f9-45c5-896c-ccb6c7d6938c-agent-8d6f71ca-62f9-45c5-896c-ccb6c7d6938c.json.tmp.286312.1768810345385
+2026-01-19T08:12:25.388Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-19T08:12:25.388Z [DEBUG] Renaming /home/ubuntu/.claude/todos/8d6f71ca-62f9-45c5-896c-ccb6c7d6938c-agent-8d6f71ca-62f9-45c5-896c-ccb6c7d6938c.json.tmp.286312.1768810345385 to /home/ubuntu/.claude/todos/8d6f71ca-62f9-45c5-896c-ccb6c7d6938c-agent-8d6f71ca-62f9-45c5-896c-ccb6c7d6938c.json
+2026-01-19T08:12:25.388Z [DEBUG] File /home/ubuntu/.claude/todos/8d6f71ca-62f9-45c5-896c-ccb6c7d6938c-agent-8d6f71ca-62f9-45c5-896c-ccb6c7d6938c.json written atomically
+2026-01-19T08:12:25.392Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-19T08:12:25.392Z [DEBUG] Total plugin skills loaded: 0
+2026-01-19T08:12:25.392Z [DEBUG] Total plugin commands loaded: 0
+2026-01-19T08:12:25.392Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-19T08:12:25.396Z [ERROR] Error: Error: NON-FATAL: Lock acquisition failed for /home/ubuntu/.local/share/claude/versions/2.0.76 (expected in multi-process scenarios)
+    at W3$ (/$bunfs/root/claude:2427:2165)
+    at TTA (/$bunfs/root/claude:2427:1276)
+    at processTicksAndRejections (native:7:39)
+2026-01-19T08:12:25.404Z [DEBUG] Total plugin agents loaded: 0
+2026-01-19T08:12:25.404Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-01-19T08:12:25.405Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2026-01-19T08:12:25.456Z [DEBUG] Stats cache saved successfully (lastComputedDate: 2026-01-18)
+2026-01-19T08:12:25.456Z [DEBUG] Stats cache updated with 2 new sessions
+2026-01-19T08:12:25.547Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810345547
+2026-01-19T08:12:25.547Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:25.554Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.4ms)
+2026-01-19T08:12:25.554Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:25.554Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:25.554Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810345547 to /home/ubuntu/.claude.json
+2026-01-19T08:12:25.555Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:25.622Z [DEBUG] Git remote URL: git@github.com:jo030304/JBNU-Litmus.git
+2026-01-19T08:12:25.622Z [DEBUG] Parsed repository: jo030304/JBNU-Litmus from git@github.com:jo030304/JBNU-Litmus.git
+2026-01-19T08:12:25.622Z [DEBUG] Parsed repository: jo030304/JBNU-Litmus from URL: git@github.com:jo030304/JBNU-Litmus.git
+2026-01-19T08:12:25.623Z [DEBUG] Path /home/ubuntu already tracked for repo jo030304/jbnu-litmus
+2026-01-19T08:12:25.627Z [DEBUG] Shell snapshot created successfully (3298 bytes)
+2026-01-19T08:12:25.662Z [ERROR] AxiosError: Error
+    at ry (/$bunfs/root/claude:58:1144)
+    at <anonymous> (/$bunfs/root/claude:59:10093)
+    at emit (node:events:92:22)
+    at endReadableNT (internal:streams/readable:862:50)
+    at processTicksAndRejections (native:7:39)
+    at request (/$bunfs/root/claude:61:2149)
+    at processTicksAndRejections (native:7:39)
+2026-01-19T08:12:26.054Z [DEBUG] Successfully refreshed marketplace: claude-plugins-official
+2026-01-19T08:12:26.055Z [DEBUG] Plugin autoupdate: checking installed plugins
+2026-01-19T08:12:26.929Z [DEBUG] Failed to fetch Grove notice config: AxiosError: Request failed with status code 401
+2026-01-19T08:12:26.964Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-01-19T08:12:26.973Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810346973
+2026-01-19T08:12:26.974Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:26.980Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2026-01-19T08:12:26.980Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:26.980Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:26.980Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810346973 to /home/ubuntu/.claude.json
+2026-01-19T08:12:26.980Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:26.997Z [DEBUG] Skipping SessionStart:startup hook execution - workspace trust not accepted
+2026-01-19T08:12:27.088Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810347088
+2026-01-19T08:12:27.088Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:27.093Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.5ms)
+2026-01-19T08:12:27.093Z [DEBUG] Temp file written successfully, size: 70800 bytes
+2026-01-19T08:12:27.093Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:27.093Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810347088 to /home/ubuntu/.claude.json
+2026-01-19T08:12:27.093Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:27.102Z [DEBUG] Official marketplace auto-install skipped: already_attempted
+2026-01-19T08:12:27.103Z [DEBUG] performStartupChecks called
+2026-01-19T08:12:27.104Z [DEBUG] Trust not accepted for current directory - skipping plugin installations
+2026-01-19T08:12:27.122Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2026-01-19T08:12:27.127Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810347127
+2026-01-19T08:12:27.127Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:27.130Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:27.130Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:27.130Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810347127 to /home/ubuntu/.claude.json
+2026-01-19T08:12:27.130Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:27.155Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (22.1ms): ps -o ppid= -p 285333
+2026-01-19T08:12:27.173Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (18.3ms): ps -o ppid= -p 285082
+2026-01-19T08:12:27.176Z [DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+2026-01-19T08:12:27.195Z [DEBUG] Skipping SubagentStart:Explore hook execution - workspace trust not accepted
+2026-01-19T08:12:27.197Z [DEBUG] Skipping SubagentStart:Plan hook execution - workspace trust not accepted
+2026-01-19T08:12:27.217Z [DEBUG] Skills and commands included in Skill tool:
+2026-01-19T08:12:27.243Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810347243
+2026-01-19T08:12:27.243Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:27.249Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2026-01-19T08:12:27.249Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:27.249Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:27.249Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810347243 to /home/ubuntu/.claude.json
+2026-01-19T08:12:27.249Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:27.253Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810347253
+2026-01-19T08:12:27.253Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:27.258Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.1ms)
+2026-01-19T08:12:27.258Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:27.258Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:27.258Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810347253 to /home/ubuntu/.claude.json
+2026-01-19T08:12:27.258Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:27.345Z [DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+2026-01-19T08:12:27.391Z [DEBUG] MCP server "ide": Successfully connected to ws-ide server in 54ms
+2026-01-19T08:12:27.391Z [DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code VSCode MCP","version":"2.1.9"}}
+2026-01-19T08:12:27.778Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (9.9ms): ps -o ppid= -p 285333
+2026-01-19T08:12:27.787Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (8.8ms): ps -o ppid= -p 285082
+2026-01-19T08:12:28.051Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810348051
+2026-01-19T08:12:28.051Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:28.054Z [DEBUG] Temp file written successfully, size: 70873 bytes
+2026-01-19T08:12:28.054Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:28.054Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810348051 to /home/ubuntu/.claude.json
+2026-01-19T08:12:28.055Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:29.730Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:12:30.018Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:12:30.167Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810350167
+2026-01-19T08:12:30.167Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:12:30.170Z [DEBUG] Temp file written successfully, size: 70876 bytes
+2026-01-19T08:12:30.170Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:12:30.170Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810350167 to /home/ubuntu/.claude.json
+2026-01-19T08:12:30.171Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:12:31.318Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:12:31.686Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:12:35.270Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:13:49.685Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:13:49.685Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:13:49.686Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:13:49.686Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:13:49.698Z [DEBUG] [SLOW OPERATION DETECTED] fs.appendFileSync (8.5ms)
+2026-01-19T08:13:49.733Z [DEBUG] Skipping UserPromptSubmit hook execution - workspace trust not accepted
+2026-01-19T08:13:49.742Z [DEBUG] FileHistory: Added snapshot for 73095494-e1e8-4afb-a310-c9b6274292e0, tracking 0 files
+2026-01-19T08:13:49.772Z [DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+2026-01-19T08:13:49.785Z [DEBUG] Total plugin output styles loaded: 0
+2026-01-19T08:13:49.819Z [DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 47ms
+2026-01-19T08:13:50.861Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:13:51.382Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:13:52.013Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.6ms)
+2026-01-19T08:13:53.724Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.7ms)
+2026-01-19T08:13:54.555Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.1ms)
+2026-01-19T08:13:58.128Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.7ms)
+2026-01-19T08:13:58.279Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.4ms)
+2026-01-19T08:13:58.414Z [DEBUG] executePreToolHooks called for tool: Task
+2026-01-19T08:13:58.420Z [DEBUG] Skipping PreToolUse:Task hook execution - workspace trust not accepted
+2026-01-19T08:13:58.501Z [DEBUG] Skipping SubagentStart:Explore hook execution - workspace trust not accepted
+2026-01-19T08:13:59.689Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:00.718Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.3ms)
+2026-01-19T08:14:00.738Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.8ms)
+2026-01-19T08:14:00.937Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:00.938Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:00.938Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:00.939Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:01.112Z [DEBUG] tree-sitter: loaded from embedded
+2026-01-19T08:14:01.153Z [DEBUG] No session environment scripts found
+2026-01-19T08:14:01.255Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:01.646Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:01.851Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:02.673Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:02.933Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:04.149Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:04.150Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:04.353Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:05.325Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:05.846Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:07.504Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-01-19T08:14:07.505Z [DEBUG] Skipping PreToolUse:Glob hook execution - workspace trust not accepted
+2026-01-19T08:14:07.505Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-01-19T08:14:07.506Z [DEBUG] Skipping PreToolUse:Glob hook execution - workspace trust not accepted
+2026-01-19T08:14:07.506Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:07.507Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:07.985Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:08.565Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:09.086Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/home/ubuntu/.local/share/claude/versions/2.0.76)
+2026-01-19T08:14:09.101Z [DEBUG] Skipping PostToolUse:Glob hook execution - workspace trust not accepted
+2026-01-19T08:14:09.131Z [DEBUG] Skipping PostToolUse:Glob hook execution - workspace trust not accepted
+2026-01-19T08:14:10.544Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:12.238Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:12.239Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:12.239Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:12.240Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:12.261Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:12.262Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:12.338Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:12.410Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:12.537Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:13.182Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:13.549Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:14.001Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:15.416Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:15.418Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:15.418Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:15.419Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:15.570Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:15.616Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:16.577Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:16.669Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:16.839Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:18.199Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:18.200Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:18.241Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:18.242Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:18.316Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:18.477Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:19.476Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:19.829Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.1ms)
+2026-01-19T08:14:20.280Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:21.834Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:21.835Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:21.835Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:21.836Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:21.836Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:21.836Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:21.847Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (9.1ms)
+2026-01-19T08:14:22.009Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:22.032Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.7ms)
+2026-01-19T08:14:22.050Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:22.084Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:22.916Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:22.946Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:22.999Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:23.310Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:23.651Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.4ms)
+2026-01-19T08:14:24.438Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:24.440Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:24.440Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:24.440Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:24.696Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:24.757Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:24.889Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.4ms)
+2026-01-19T08:14:25.646Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:25.801Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:26.054Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:26.940Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:26.941Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:26.941Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:26.941Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:27.000Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:27.001Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:27.073Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.5ms)
+2026-01-19T08:14:28.266Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:29.460Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:29.462Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:29.484Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:29.485Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:29.552Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:29.593Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:29.659Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.3ms)
+2026-01-19T08:14:30.637Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:31.093Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:32.424Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:32.425Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:32.443Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:14:32.443Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:32.496Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:14:32.681Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:32.746Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.5ms)
+2026-01-19T08:14:33.770Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:34.627Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.7ms)
+2026-01-19T08:14:34.705Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:36.350Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:36.352Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:37.207Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:37.347Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:37.959Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:38.153Z [DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "tree:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+2026-01-19T08:14:38.193Z [DEBUG] executePermissionRequestHooks called for tool: Bash
+2026-01-19T08:14:38.195Z [DEBUG] Skipping PermissionRequest:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:40.707Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2026-01-19T08:14:40.768Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:40.796Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:14:40.797Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:40.926Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:14:41.016Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.5ms)
+2026-01-19T08:14:41.292Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:42.209Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:42.380Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:14:58.336Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.6ms)
+2026-01-19T08:15:06.328Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:15:06.351Z [DEBUG] Skipping PostToolUse:Task hook execution - workspace trust not accepted
+2026-01-19T08:15:06.377Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:15:06.378Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:15:06.378Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:15:06.379Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:15:06.379Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:15:06.397Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 20ms
+2026-01-19T08:15:07.494Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:15:14.657Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.1ms)
+2026-01-19T08:15:20.337Z [DEBUG] Language not supported while highlighting code, falling back to markdown:
+2026-01-19T08:15:20.384Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.6ms)
+2026-01-19T08:15:20.399Z [DEBUG] Skipping Stop hook execution - workspace trust not accepted
+2026-01-19T08:15:20.424Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810520424
+2026-01-19T08:15:20.424Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:15:20.427Z [DEBUG] Temp file written successfully, size: 70876 bytes
+2026-01-19T08:15:20.427Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:15:20.427Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810520424 to /home/ubuntu/.claude.json
+2026-01-19T08:15:20.427Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:15:21.649Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:15:42.535Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:16:20.445Z [DEBUG] Skipping Notification:idle_prompt hook execution - workspace trust not accepted
+2026-01-19T08:19:40.389Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.5ms)
+2026-01-19T08:20:00.603Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:20:00.604Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:20:00.604Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:20:00.604Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:20:00.604Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:20:00.637Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 34ms
+2026-01-19T08:20:00.640Z [DEBUG] Skipping UserPromptSubmit hook execution - workspace trust not accepted
+2026-01-19T08:20:00.642Z [DEBUG] FileHistory: Making snapshot for message e84b8184-1833-4077-b355-50521a8ee269
+2026-01-19T08:20:00.649Z [DEBUG] FileHistory: Added snapshot for e84b8184-1833-4077-b355-50521a8ee269, tracking 0 files
+2026-01-19T08:20:00.681Z [DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+2026-01-19T08:20:00.693Z [DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 12ms
+2026-01-19T08:20:01.708Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:20:01.981Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:20:10.239Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:20:10.241Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.242Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:20:10.243Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.243Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-19T08:20:10.244Z [DEBUG] Skipping PreToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.336Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.337Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.338Z [DEBUG] Skipping PostToolUse:Read hook execution - workspace trust not accepted
+2026-01-19T08:20:10.372Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:20:10.372Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:20:10.372Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:20:10.372Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:20:10.372Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:20:10.393Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+2026-01-19T08:20:12.030Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:20:15.879Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.0ms)
+2026-01-19T08:20:19.369Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.7ms)
+2026-01-19T08:20:33.624Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (5.6ms)
+2026-01-19T08:20:51.225Z [DEBUG] Skipping Stop hook execution - workspace trust not accepted
+2026-01-19T08:20:51.267Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (9.4ms)
+2026-01-19T08:20:52.584Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:04.694Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:21:30.622Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:30.623Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:30.624Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:30.624Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:30.624Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:30.647Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 25ms
+2026-01-19T08:21:30.651Z [DEBUG] Skipping UserPromptSubmit hook execution - workspace trust not accepted
+2026-01-19T08:21:30.661Z [DEBUG] FileHistory: Making snapshot for message b01619da-e0c2-476e-ac04-c952f5a18f80
+2026-01-19T08:21:30.661Z [DEBUG] FileHistory: Added snapshot for b01619da-e0c2-476e-ac04-c952f5a18f80, tracking 0 files
+2026-01-19T08:21:30.682Z [DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+2026-01-19T08:21:30.697Z [DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 15ms
+2026-01-19T08:21:31.625Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:31.764Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:36.846Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:36.848Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:37.090Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:37.116Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:37.117Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:37.117Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:37.117Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:37.117Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:37.120Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+2026-01-19T08:21:37.846Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:38.178Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:40.084Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:40.085Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:40.202Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:40.228Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:40.230Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:40.230Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:40.230Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:40.230Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:40.232Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+2026-01-19T08:21:41.184Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:41.368Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:43.043Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:43.044Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:43.277Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:43.309Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:43.309Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:43.309Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:43.309Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:43.309Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:43.332Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 23ms
+2026-01-19T08:21:44.451Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:44.460Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:47.460Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:47.461Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:47.572Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:47.596Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:47.597Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:47.597Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:47.597Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:47.597Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:47.602Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 6ms
+2026-01-19T08:21:47.663Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.7ms)
+2026-01-19T08:21:48.669Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:48.748Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:51.777Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:51.779Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:51.905Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:51.927Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:51.928Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:51.928Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:51.928Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:51.928Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:51.939Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 12ms
+2026-01-19T08:21:53.011Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:53.278Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:56.241Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:21:56.242Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:56.595Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:21:56.617Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:21:56.618Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:21:56.618Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:21:56.618Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:21:56.618Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:21:56.637Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 20ms
+2026-01-19T08:21:57.616Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:21:57.895Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:00.778Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:00.779Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:00.933Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:00.956Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:00.956Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:00.956Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:00.956Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:00.956Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:00.958Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 2ms
+2026-01-19T08:22:01.875Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:02.114Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:04.352Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:04.354Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:04.365Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.6ms)
+2026-01-19T08:22:04.500Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:04.532Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:04.532Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:04.532Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:04.532Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:04.532Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:04.536Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+2026-01-19T08:22:05.370Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:05.796Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:07.342Z [DEBUG] Writing to temp file: /home/ubuntu/.claude.json.tmp.286312.1768810927342
+2026-01-19T08:22:07.342Z [DEBUG] Preserving file permissions: 100600
+2026-01-19T08:22:07.345Z [DEBUG] Temp file written successfully, size: 70876 bytes
+2026-01-19T08:22:07.345Z [DEBUG] Applied original permissions to temp file
+2026-01-19T08:22:07.345Z [DEBUG] Renaming /home/ubuntu/.claude.json.tmp.286312.1768810927342 to /home/ubuntu/.claude.json
+2026-01-19T08:22:07.346Z [DEBUG] File /home/ubuntu/.claude.json written atomically
+2026-01-19T08:22:09.569Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:09.570Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:09.696Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:09.717Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:09.718Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:09.718Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:09.718Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:09.718Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:09.729Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.5ms)
+2026-01-19T08:22:09.737Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 20ms
+2026-01-19T08:22:10.517Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:11.160Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:13.947Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:13.948Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:14.750Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:14.861Z [DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "gh pr view:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+2026-01-19T08:22:14.902Z [DEBUG] executePermissionRequestHooks called for tool: Bash
+2026-01-19T08:22:14.902Z [DEBUG] Skipping PermissionRequest:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:16.336Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2026-01-19T08:22:16.366Z [DEBUG] Skipping PostToolUseFailure:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:16.394Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:16.394Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:16.394Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:16.394Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:16.394Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:16.410Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 16ms
+2026-01-19T08:22:17.695Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:18.078Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.6ms)
+2026-01-19T08:22:18.680Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.0ms)
+2026-01-19T08:22:20.427Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:20.428Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:20.657Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:20.685Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:20.685Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:20.685Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:20.685Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:20.685Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:20.688Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+2026-01-19T08:22:20.830Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.5ms)
+2026-01-19T08:22:21.661Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:22.106Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.7ms)
+2026-01-19T08:22:22.108Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:23.635Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.2ms)
+2026-01-19T08:22:24.473Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:24.475Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:24.665Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:24.691Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:24.691Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:24.691Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:24.691Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:24.691Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:24.695Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+2026-01-19T08:22:24.744Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.3ms)
+2026-01-19T08:22:25.500Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:26.109Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:28.358Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:28.359Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:28.372Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.7ms)
+2026-01-19T08:22:28.604Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:28.615Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (9.9ms)
+2026-01-19T08:22:28.632Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:28.632Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:28.632Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:28.632Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:28.632Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:28.644Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.4ms)
+2026-01-19T08:22:28.650Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 18ms
+2026-01-19T08:22:29.300Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:29.870Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:32.691Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:32.692Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:32.852Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:32.887Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:32.888Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:32.888Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:32.888Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:32.888Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:32.908Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+2026-01-19T08:22:33.748Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:34.085Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:35.978Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:35.979Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:36.080Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.0ms)
+2026-01-19T08:22:36.150Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:36.173Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:36.173Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:36.173Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:36.173Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:36.173Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:36.183Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.4ms)
+2026-01-19T08:22:36.191Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 18ms
+2026-01-19T08:22:36.216Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (7.0ms)
+2026-01-19T08:22:36.642Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:38.689Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:40.695Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.6ms)
+2026-01-19T08:22:42.091Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:42.093Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:42.245Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:42.285Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:42.285Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:42.285Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:42.285Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:42.285Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:42.288Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+2026-01-19T08:22:43.249Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:43.425Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:45.482Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:22:45.483Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:45.635Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:22:45.658Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:22:45.658Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:22:45.658Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:22:45.658Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:22:45.658Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:22:45.662Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+2026-01-19T08:22:46.442Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:46.781Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:22:58.914Z [DEBUG] Skipping Stop hook execution - workspace trust not accepted
+2026-01-19T08:23:00.908Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:23:17.686Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:24:52.627Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:24:52.629Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:24:52.629Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:24:52.629Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:24:52.629Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:24:52.651Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 24ms
+2026-01-19T08:24:52.653Z [DEBUG] Skipping UserPromptSubmit hook execution - workspace trust not accepted
+2026-01-19T08:24:52.661Z [DEBUG] FileHistory: Making snapshot for message 49ed3b3d-d6f6-4967-95f3-ce1acd59b802
+2026-01-19T08:24:52.662Z [DEBUG] FileHistory: Added snapshot for 49ed3b3d-d6f6-4967-95f3-ce1acd59b802, tracking 0 files
+2026-01-19T08:24:52.683Z [DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+2026-01-19T08:24:52.696Z [DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 13ms
+2026-01-19T08:24:53.295Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:24:53.747Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:24:57.352Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:24:57.353Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:24:57.401Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.2ms)
+2026-01-19T08:24:57.463Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:24:57.489Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:24:57.489Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:24:57.489Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:24:57.489Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:24:57.489Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:24:57.492Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+2026-01-19T08:24:58.409Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:24:58.869Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:01.346Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:25:01.347Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:25:01.358Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.9ms)
+2026-01-19T08:25:01.457Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:25:01.481Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:25:01.481Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:25:01.481Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:25:01.481Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:25:01.481Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:25:01.484Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+2026-01-19T08:25:02.531Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:02.638Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:05.591Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-19T08:25:05.593Z [DEBUG] Skipping PreToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:25:05.617Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (10.3ms)
+2026-01-19T08:25:05.777Z [DEBUG] Skipping PostToolUse:Bash hook execution - workspace trust not accepted
+2026-01-19T08:25:05.805Z [DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+2026-01-19T08:25:05.805Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-19T08:25:05.805Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-19T08:25:05.805Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-19T08:25:05.805Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-19T08:25:05.810Z [DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 5ms
+2026-01-19T08:25:06.877Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:07.074Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:28.194Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (8.2ms)
+2026-01-19T08:25:30.971Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (14.2ms)
+2026-01-19T08:25:33.046Z [DEBUG] Skipping Stop hook execution - workspace trust not accepted
+2026-01-19T08:25:34.247Z [DEBUG] Stream started - received first chunk
+2026-01-19T08:25:47.716Z [DEBUG] Skipping SubagentStop hook execution - workspace trust not accepted
+2026-01-19T08:26:33.087Z [DEBUG] Skipping Notification:idle_prompt hook execution - workspace trust not accepted

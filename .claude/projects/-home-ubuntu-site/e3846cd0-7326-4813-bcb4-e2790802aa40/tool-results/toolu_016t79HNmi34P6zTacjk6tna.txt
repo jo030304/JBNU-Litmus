@@ -1,0 +1,3 @@
+/home/ubuntu/tmp/static/admin/css/changelists.css
+/home/ubuntu/dmojsite/lib/python3.10/site-packages/django/contrib/admin/static/admin/css/changelists.css
+/home/ubuntu/.local/lib/python3.10/site-packages/django/contrib/admin/static/admin/css/changelists.css

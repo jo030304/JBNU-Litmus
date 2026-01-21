@@ -1,0 +1,9 @@
+Found 8 files
+site/templates/admin/input_filter/input_filter_contest_participation.html
+site/templates/admin/input_filter/input_filter_contest.html
+site/templates/admin/input_filter/input_filter_problem.html
+site/templates/admin/input_filter/input_filter_profile.html
+site/templates/admin/input_filter/input_filter_submission.html
+site/templates/admin/input_filter/input_filter_user.html
+site/templates/admin/input_filter/input_filter_comment.html
+site/locale/ko/LC_MESSAGES/django.po

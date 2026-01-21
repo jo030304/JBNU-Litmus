@@ -18,9 +18,11 @@ $(function () {
             var text = $textarea.val();
             if (text) {
                 $preview.addClass('dmmd-preview-stale');
+                // CSRF 토큰을 meta 태그에서 가져오기 (AppScan 보안 경고 해결)
+                var csrfToken = document.querySelector('meta[name="csrf-token"]');
                 $.post(preview_url, {
                     content: text,
-                    csrfmiddlewaretoken: $.cookie('csrftoken')
+                    csrfmiddlewaretoken: csrfToken ? csrfToken.getAttribute('content') : ''
                 }, function (result) {
                     $content.html(result);
                     $preview.addClass('dmmd-preview-has-content').removeClass('dmmd-preview-stale');

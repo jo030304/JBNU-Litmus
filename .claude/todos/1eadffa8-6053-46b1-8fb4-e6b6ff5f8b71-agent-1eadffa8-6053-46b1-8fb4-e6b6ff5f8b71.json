@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Django 서버 재시작 (설정 변경 반영)",
+    "status": "completed",
+    "activeForm": "Django 서버 재시작 중"
+  },
+  {
+    "content": "브라우저에서 CSRF 토큰 쿠키 확인",
+    "status": "in_progress",
+    "activeForm": "브라우저에서 CSRF 토큰 쿠키 확인 중"
+  },
+  {
+    "content": "AJAX 기능 테스트 (문제 제출/댓글 등)",
+    "status": "pending",
+    "activeForm": "AJAX 기능 테스트 중"
+  }
+]

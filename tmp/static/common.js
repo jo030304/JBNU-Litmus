@@ -156,10 +156,16 @@ $(function () {
         $nav_list.removeClass('show-list');
     });
 
+    // CSRF 토큰을 meta 태그에서 가져오는 함수 (AppScan 보안 경고 해결)
+    function getCSRFToken() {
+        var token = document.querySelector('meta[name="csrf-token"]');
+        return token ? token.getAttribute('content') : '';
+    }
+
     $.ajaxSetup({
         beforeSend: function (xhr, settings) {
             if (!(/^(GET|HEAD|OPTIONS|TRACE)$/.test(settings.type)) && !this.crossDomain)
-                xhr.setRequestHeader('X-CSRFToken', $.cookie('csrftoken'));
+                xhr.setRequestHeader('X-CSRFToken', getCSRFToken());
         }
     });
 });

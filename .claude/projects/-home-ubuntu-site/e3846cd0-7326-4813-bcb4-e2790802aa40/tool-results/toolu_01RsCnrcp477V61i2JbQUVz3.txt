@@ -1,0 +1,382 @@
+     1→{% load wpadmin_tags wpadmin_menu_tags %}{% load static %}
+     2→<!DOCTYPE html>
+     3→<html lang="{{ LANGUAGE_CODE|default:" en-us" }}"{% if LANGUAGE_BIDI %} dir="rtl" {% endif %}>
+     4→
+     5→<head>
+     6→	{# WP Admin start #}
+     7→	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     8→	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     9→	{# WP Admin end #}
+    10→	<title>{% block title %}{% endblock %}</title>
+    11→	<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+    12→	{% block extrastyle %}{% endblock %}
+    13→	{% if LANGUAGE_BIDI %}
+    14→	<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />
+    15→	{% endif %}
+    16→	{# WP Admin start #}
+    17→	{% if INLINE_FONTAWESOME %}
+    18→	<link rel="stylesheet" type="text/css" href="{% static "libs/fontawesome/font-awesome.css" %}" />
+    19→	{% elif FONTAWESOME_CSS %}
+    20→	<link rel="stylesheet" type="text/css" href="{{ FONTAWESOME_CSS }}" />
+    21→	{% else %}
+    22→	<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/font-awesome.min.css" %}" />
+    23→	{% endif %}
+    24→	{% with WPADMIN_DEV=0 %}{% if WPADMIN_DEV %}
+    25→	<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/wpadmin.less" %}" />
+    26→	<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/themes/default/theme.less" %}" />
+    27→	<script type="text/javascript">less = { env: "development" };</script>
+    28→	<script type="text/javascript" src="{% static "wpadmin/js/lib/less.min.js" %}"></script>
+    29→	{% else %}
+    30→	<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/wpadmin.css" %}" />
+    31→	<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/themes/default.css" %}" />
+    32→	{% endif %}{% endwith %}
+    33→	{# WP Admin end #}
+    34→	<script
+    35→		type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+    36→	<script
+    37→		type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+    38→	{% block extrahead %}{% endblock %}
+    39→	{% wpadmin_render_custom_style %}
+    40→	{% block wpadmin_extrastyle %}{% endblock %}
+    41→	{% block wpadmin_extrahead %}{% endblock %}
+    42→	{# WP Admin start #}
+    43→	<script type="text/javascript">
+    44→		// needed for setting cookie path
+    45→		window.__admin_url = '{% url 'admin:index' %}';
+    46→		// cookie name
+    47→		window.__wpadmin_cookie_name = 'djangoWpAdminSettings';
+    48→
+    49→		// we need jQuery in default namespace (not django.jQuery) because we use some external jQuery plugins
+    50→		if (typeof jQuery == 'undefined') {
+    51→			// we can get jQuery object from django object but there are some admin templates where jQuery is not loaded
+    52→			if (typeof django == 'undefined' || typeof django.jQuery == 'undefined') {
+    53→				// so lets load our jQuery synchronously
+    54→				document.write(decodeURI("%3Cscript src='{% static "wpadmin/js/lib/jquery.min.js" %}' type='text/javascript'%3E%3C/script%3E"));
+    55→			} else {
+    56→				// lest copy jQuery from django object to default namespace
+    57→				window.jQuery = django.jQuery;
+    58→			}
+    59→		}
+    60→	</script>
+    61→	<script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
+    62→	<script type="text/javascript" src="{% static "wpadmin/js/menus.js" %}"></script>
+    63→	<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
+    64→	<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/wpadmin.site.css" %}" />
+    65→	{# WP Admin end #}
+    66→	{% block blockbots %}
+    67→	<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+    68→	<style>
+    69→		:root {
+    70→			--border-color: rgba(0, 0, 0, 0.07);
+    71→			--border-secondary: #e5e5e5;
+    72→			--checkbox-color: #1D7FB4;
+    73→		}
+    74→
+    75→		body {
+    76→			background-color: #F2F2F2;
+    77→		}
+    78→
+    79→		/* hover, focus, active 상태에서 효과 제거 */
+    80→		input:hover,
+    81→		input:focus,
+    82→		input:active,
+    83→		select:hover,
+    84→		select:focus,
+    85→		select:active,
+    86→		textarea:hover,
+    87→		textarea:focus,
+    88→		textarea:active {
+    89→			outline: none !important;
+    90→			box-shadow: none !important;
+    91→			background: inherit;
+    92→			transition: none !important;
+    93→		}
+    94→
+    95→		#wrapper {
+    96→			margin-top: 48px;
+    97→		}
+    98→
+    99→		#adminbarwrap #adminbar {
+   100→			background-color: #1C3B60;
+   101→			box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.1);
+   102→		}
+   103→
+   104→		#content {
+   105→			background-color: none;
+   106→			height: 100%;
+   107→			margin: 0;
+   108→			padding: 10px 50px;
+   109→		}
+   110→
+   111→		.breadcrumbs {
+   112→			background-color: #FFFFFF !important;
+   113→			border: 1px solid;
+   114→			color: #5C95D9 !important;
+   115→		}
+   116→
+   117→		.breadcrumbs a {
+   118→			margin: 10px;
+   119→			color: #8391A1 !important;
+   120→		}
+   121→
+   122→		.breadcrumbs a:hover {
+   123→			color: #5C95D9 !important;
+   124→		}
+   125→
+   126→		#content .module {
+   127→			border-radius: 10px;
+   128→			border: 1px solid var(--border-secondary);
+   129→			overflow: hidden;
+   130→		}
+   131→
+   132→		#content .module h2,
+   133→		#content .module caption,
+   134→		#content .inline-group h2 {
+   135→			border-top-left-radius: 10px;
+   136→			border-top-right-radius: 10px;
+   137→			border: none;
+   138→			background-color: #F8F8F8;
+   139→		}
+   140→
+   141→		#content .form-row.errors {
+   142→			border-top: 1px solid #ccc;
+   143→		}
+   144→
+   145→		#content .form-row {
+   146→			border: none;
+   147→			border-top: 1px solid #ccc;
+   148→			padding: 10px 20px;
+   149→			overflow: auto;
+   150→		}
+   151→
+   152→		#content textarea,
+   153→		#content input[type="text"],
+   154→		#content input[type="password"],
+   155→		#content input[type="email"],
+   156→		#content input[type="number"],
+   157→		#content input[type="search"],
+   158→		#content input[type="tel"],
+   159→		#content input[type="url"],
+   160→		#content input[type="file"],
+   161→		#content select {
+   162→			border-radius: 7px;
+   163→		}
+   164→
+   165→		#content .form-row>div {
+   166→			margin: 0;
+   167→		}
+   168→
+   169→		#content label {
+   170→			width: auto;
+   171→			font-weight: bold;
+   172→			color: black;
+   173→		}
+   174→
+   175→		.select2-container--default.select2-container--focus .select2-selection--multiple {
+   176→			border: 1px solid var(--border-secondary);
+   177→			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07) inset
+   178→		}
+   179→
+   180→		.select2-container--default .select2-selection--multiple {
+   181→			border: 1px solid var(--border-secondary);
+   182→			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07) inset
+   183→		}
+   184→
+   185→		#adminbar>.wp-menu-top.wp-menu-open {
+   186→			display: none;
+   187→		}
+   188→
+   189→		.calendarbox .calendarnav-previous,
+   190→		.calendarbox .calendarnav-next {
+   191→			padding: 0;
+   192→			padding-top: 0px;
+   193→			padding-right: 0px;
+   194→			padding-bottom: 0px;
+   195→			padding-left: 0px;
+   196→			text-align: center;
+   197→			width: 19px;
+   198→			height: 15px;
+   199→			line-height: 19px;
+   200→			font-size: 18px;
+   201→		}
+   202→		#content #content-main #bottombar{
+   203→			background-color: #F2F2F2;
+   204→		}
+   205→		#content #content-main #bottombar button{
+   206→			border-radius :8px;
+   207→			background-color: #4C79B6;
+   208→			opacity: 1;
+   209→		}
+   210→		#content #content-main #bottombar a{
+   211→			border-radius :8px;
+   212→			background-color: #4C79B6 !important;
+   213→			opacity: 1;
+   214→		}
+   215→		#content #content-main #bottombar .deletelink{
+   216→			background-color : #E05252 !important;
+   217→			color:white !important;
+   218→		}
+   219→		#content #content-main .module .field-date .datetime{
+   220→			position: relative;
+   221→			vertical-align: middle;
+   222→			align-items: center;
+   223→		}
+   224→		#content #content-main .module .field-date .datetime input{
+   225→			padding-right: 80px;
+   226→			margin-right: -60px;
+   227→		}
+   228→		
+   229→		#content #content-main .module .field-date .datetime span{
+   230→			text-align: left;
+   231→			direction: ltr;
+   232→			right:0;
+   233→		}
+   234→		#content{
+   235→			color: #333333;
+   236→			letter-spacing: -0.025em;
+   237→		}
+   238→		#content #content-main .module .form-row .help{
+   239→			font-size:10px !important;
+   240→		}
+   241→
+   242→		/* 날짜/시간 필드의 br 태그 제거 */
+   243→		.datetime br {
+   244→			display: none !important;
+   245→		}
+   246→
+   247→		/* 날짜/시간 입력 필드 레이아웃 개선 */
+   248→		.datetime input {
+   249→			display: inline-block !important;
+   250→			margin-right: 5px !important;
+   251→		}
+   252→
+   253→		#content #content-main .module .field-is_encrypted #id_is_encrypted{
+   254→			accent-color: var(--checkbox-color);
+   255→		}
+   256→		#content #content-main .module .field-is_public #id_is_public{
+   257→			accent-color: var(--checkbox-color);
+   258→		}
+   259→		#content #content-main .module .field-allowed_languages .related-widget-wrapper{
+   260→			accent-color: var(--checkbox-color);
+   261→		}
+   262→		#content #content-main .module .field-date .datetimeshortcuts > a,
+   263→		#content #content-main .module .field-date .datetimeshortcuts > a > span{
+   264→			filter: invert(60%) sepia(0%) saturate(1%) hue-rotate(163deg) brightness(95%) contrast(86%);
+   265→		}
+   266→		#content #content-main #language_limits-group .module tbody .add-row a,
+   267→		#content #content-main #cases-group .module tbody .add-row a,
+   268→		#content #content-main #solution-group .module .add-row a,
+   269→		#content #content-main #clarifications-group .module .add-row a{
+   270→			border-radius :8px;
+   271→			padding: 5px 5px 5px 5px;
+   272→			color: black;
+   273→			font-size:13px;
+   274→			display:inline-block;
+   275→			margin-top:3px;
+   276→		}
+   277→		#content #content-main #language_limits-group .module tbody .add-row td,
+   278→		#content #content-main #cases-group .module tbody .add-row td,
+   279→		#content #content-main #solution-group .module .add-row td,
+   280→		#content #content-main #clarifications-group .module .add-row td{
+   281→			height:30px;
+   282→		}
+   283→		#content #content-main #language_limits-group .module tbody .add-row a::before,
+   284→		#content #content-main #cases-group .module tbody .add-row a::before,
+   285→		#content #content-main #solution-group .module .add-row a::before,
+   286→		#content #content-main #clarifications-group .module .add-row a::before{
+   287→			color: #3A6FD9;
+   288→		}
+   289→		#content #content-main .module .field-allowed_languages #allowed_languages_all > label{
+   290→			padding-left:31px;
+   291→		}
+   292→
+   293→		/* 문제 관리 페이지 디자인 일부 수정 */
+   294→		#content .object-tools li a, #content .list-tools li a {
+   295→			border: 0.5px solid var(--border-color);
+   296→			background-color: #E6E7EA;
+   297→			color: #2E5DA8;
+   298→			border-radius: 8px;
+   299→			padding: 4px 15px;
+   300→		}
+   301→		#content .object-tools li a:hover, #content .list-tools li a:hover {
+   302→			background-color: #E6E7EA;
+   303→			color: #2E5DA8;
+   304→		}
+   305→		#content .datetimeshortcuts {
+   306→			margin-right: 30px;
+   307→		}
+   308→		.aligned label + p, .aligned label + div.help, .aligned label + div.readonly {
+   309→			margin-left: 0;
+   310→		}
+   311→		div.original-checkboxes ul {
+   312→			columns: 10em 4 !important;
+   313→		}
+   314→	</style>
+   315→</head>
+   316→{% load i18n %}
+   317→
+   318→{% wpadmin_are_breadcrumbs_enabled %}{% wpadmin_is_left_menu_enabled %}
+   319→
+   320→<body
+   321→	class="{% if is_popup %}popup {% endif %}{% if not wpadmin_are_breadcrumbs_enabled %}wp-no-breadcrumbs {% endif %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% block bodyclass %}{% endblock %} wp-pinned">
+   322→
+   323→	<!-- Wrapper -->
+   324→	<div id="wrapper">
+   325→		{% if not is_popup %}
+   326→		{% block adminmenu %}
+   327→		{% wpadmin_render_left_menu %}
+   328→		{% endblock%}
+   329→		{% endif %}
+   330→
+   331→		<!-- Container -->
+   332→		<div id="container">
+   333→
+   334→			{% if not is_popup %}
+   335→			{% block adminbar %}
+   336→			{% wpadmin_render_top_menu %}
+   337→			{% endblock %}
+   338→			{% block breadcrumbs %}
+   339→			<div class="breadcrumbs">
+   340→				<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+   341→				{% if title %} &rsaquo; {{ title }}{% endif %}
+   342→			</div>
+   343→			{% endblock %}
+   344→			{% endif %}
+   345→
+   346→			{% block messages %}
+   347→			{% if messages %}
+   348→			<ul class="messagelist">
+   349→				{% for message in messages %}
+   350→				<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message|capfirst }}</li>
+   351→					{% endfor %}
+   352→			</ul>
+   353→			{% endif %}
+   354→			{% endblock messages %}
+   355→
+   356→			<!-- Content -->
+   357→			<div id="content" class="{% block coltype %}colM{% endblock %}">
+   358→				{% block pretitle %}{% endblock %}
+   359→				{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+   360→				{% block content %}
+   361→				{% block object-tools %}{% endblock %}
+   362→				{{ content }}
+   363→				{% endblock %}
+   364→				{% block sidebar %}{% endblock %}
+   365→				<br class="clear" />
+   366→			</div>
+   367→			<!-- END Content -->
+   368→
+   369→			{% block footer %}<div id="footer"></div>{% endblock %}
+   370→		</div>
+   371→		<!-- END Container -->
+   372→
+   373→	</div>
+   374→	<!-- END Wrapper -->
+   375→
+   376→</body>
+   377→
+   378→</html>
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

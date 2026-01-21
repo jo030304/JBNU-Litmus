@@ -1,0 +1,56 @@
+     1→<head>
+     2→  <link 
+     3→    rel="stylesheet" 
+     4→    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     5→  >
+     6→</head>
+     7→<form method="get">
+     8→  {% for key, value in request.GET.items %}
+     9→    {% if key not in spec.filter_keys %}
+    10→        <input type="hidden" name="{{ key }}" value="{{ value }}">
+    11→    {% endif %}
+    12→    {% endfor %}
+    13→<label>
+    14→  사용자 이름
+    15→  <input type="text" name="username" value="{{ request.GET.username }}" placeholder="사용자 이름">
+    16→</label>
+    17→<label>
+    18→  이메일
+    19→  <input type="text" name="email" value="{{request.GET.email}}" placeholder="이메일">
+    20→</label>
+    21→<label>
+    22→  학과
+    23→  <select name="department">
+    24→  <option value="">DEPARTMET</option>
+    25→  {% for value, label in spec.department_lookups %}
+    26→    <option value="{{ value }}" {% if request.GET.department == value %}selected{% endif %}>
+    27→      {{ label }}
+    28→    </option>
+    29→  {% endfor %}
+    30→</select>
+    31→</label>
+    32→<label>
+    33→  시간대
+    34→<select name="timezone">
+    35→  <option value="">시간대</option>
+    36→  {% for value, label in spec.timezone_lookups %}
+    37→    <option value="{{ value }}" {% if request.GET.timezone == value %}selected{% endif %}>
+    38→      {{ label }}
+    39→    </option>
+    40→  {% endfor %}
+    41→</select>
+    42→</label>
+    43→<label>
+    44→  IP 주소
+    45→<input type="text" name="IP" value="{{ request.GET.IP }}" placeholder="IP 주소">
+    46→</label>
+    47→
+    48→  <button type="submit" style="font-size: 14px;">
+    49→  <i class="fa-solid fa-filter"></i> 필터 적용
+    50→</button>
+    51→</form>
+    52→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

@@ -1,0 +1,62 @@
+     1→<head>
+     2→  <link 
+     3→    rel="stylesheet" 
+     4→    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     5→  >
+     6→</head>
+     7→<form method="get">
+     8→  {% for key, value in request.GET.items %}
+     9→    {% if key not in spec.filter_keys %}
+    10→        <input type="hidden" name="{{ key }}" value="{{ value }}">
+    11→    {% endif %}
+    12→    {% endfor %}
+    13→<label>
+    14→  언어
+    15→<select name="language">
+    16→  <option value="">언어</option>
+    17→  {% for value, label in spec.language_lookups %}
+    18→    <option value="{{ value }}" {% if request.GET.language == value %}selected{% endif %}>
+    19→      {{ label }}
+    20→    </option>
+    21→  {% endfor %}
+    22→</select>
+    23→</label>
+    24→<label>
+    25→  상태
+    26→  <select name="status">
+    27→    <option value="">상태</option>
+    28→    {% for value, label in spec.status_lookups %}
+    29→      <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+    30→    {% endfor %}
+    31→  </select>
+    32→</label>
+    33→<label>
+    34→  결과
+    35→  <select name="result">
+    36→    <option value="">결과</option>
+    37→    {% for value, label in spec.result_lookups %}
+    38→      <option value="{{ value }}" {% if request.GET.result == value %}selected{% endif %}>{{ label }}</option>
+    39→    {% endfor %}
+    40→  </select>
+    41→</label>
+    42→<label>
+    43→  문제 코드
+    44→  <input type="text" name="code" value="{{ request.GET.code }}" placeholder="문제 코드">
+    45→</label>
+    46→<label>
+    47→  문제 이름
+    48→  <input type="text" name="problem_name" value="{{ request.GET.problem_name }}" placeholder="문제 이름">
+    49→</label>
+    50→<label>
+    51→  사용자 이름
+    52→  <input type="text" name="username" value="{{ request.GET.username }}" placeholder="사용자 이름">
+    53→</label>
+    54→  <button type="submit" style="font-size: 14px;">
+    55→  <i class="fa-solid fa-filter"></i> 필터 적용
+    56→</button>
+    57→</form>
+    58→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

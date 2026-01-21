@@ -1,0 +1,2 @@
+/home/ubuntu/site/sass_processed/wpadmin/css/wpadmin.site.css
+/home/ubuntu/site/resources/wpadmin/css/wpadmin.site.css
