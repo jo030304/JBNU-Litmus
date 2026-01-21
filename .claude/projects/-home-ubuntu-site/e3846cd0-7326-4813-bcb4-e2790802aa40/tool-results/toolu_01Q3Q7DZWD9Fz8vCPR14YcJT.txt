@@ -1,1 +1,0 @@
-/home/ubuntu/site/templates/submission/status-testcases.html

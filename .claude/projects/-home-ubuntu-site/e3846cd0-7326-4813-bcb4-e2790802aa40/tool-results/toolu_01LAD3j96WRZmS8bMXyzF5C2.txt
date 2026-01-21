@@ -1,3 +1,0 @@
-Found 2 files
-site/judge/admin/problem.py
-site/judge/admin/users.py

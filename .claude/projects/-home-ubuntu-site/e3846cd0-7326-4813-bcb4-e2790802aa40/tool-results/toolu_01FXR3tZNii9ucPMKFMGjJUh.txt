@@ -1,1 +1,0 @@
-/home/ubuntu/site/django_ace/static/django_ace/widget.css
