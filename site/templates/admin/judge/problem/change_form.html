@@ -7,6 +7,149 @@
             $('.submissions-link').appendTo('div#bottombar').show();
         });
     </script>
+    <script type="text/javascript">
+        django.jQuery(function ($) {
+            var $sampleInput = $('#id_sample_input');
+            var $sampleOutput = $('#id_sample_output');
+            if (!$sampleInput.length || !$sampleOutput.length) {
+                return;
+            }
+            if ($('#sample-io-add').length) {
+                return;
+            }
+
+            var separator = '\n<<<SAMPLE_SPLIT>>>\n';
+            var $inputRow = $sampleInput.closest('.form-row');
+            var $outputRow = $sampleOutput.closest('.form-row');
+            if (!$inputRow.length || !$outputRow.length) {
+                return;
+            }
+
+            function normalizeLabel(text) {
+                var trimmed = $.trim(text);
+                if (!trimmed) {
+                    return '';
+                }
+                return trimmed.replace(/\s*\d+\s*:?$/, ':').replace(/\s*:\s*$/, ':');
+            }
+
+            function formatLabel(base, index, total) {
+                if (!base) {
+                    return '';
+                }
+                if (total === 1) {
+                    return base;
+                }
+                var hasColon = /:$/.test(base);
+                var stripped = base.replace(/:\s*$/, '');
+                return hasColon ? (stripped + ' ' + index + ':') : (base + ' ' + index);
+            }
+
+            function splitSamples(value) {
+                if (!value) {
+                    return [];
+                }
+                return value.split(separator).filter(function (item) {
+                    return $.trim(item);
+                });
+            }
+
+            function buildRow($row, kind, value) {
+                var $clone = $row.clone(false, false);
+                $clone.find('textarea').val(value || '')
+                    .removeAttr('id')
+                    .removeAttr('name')
+                    .attr('data-sample-kind', kind);
+                $clone.find('label').removeAttr('for');
+                $clone.find('.help, .errorlist').remove();
+                return $clone;
+            }
+
+            var inputBase = normalizeLabel($inputRow.find('label').first().text()) || 'Sample input:';
+            var outputBase = normalizeLabel($outputRow.find('label').first().text()) || 'Sample output:';
+
+            var inputs = splitSamples($sampleInput.val());
+            var outputs = splitSamples($sampleOutput.val());
+            if (inputs.length) {
+                $sampleInput.val(inputs[0]);
+            }
+            if (outputs.length) {
+                $sampleOutput.val(outputs[0]);
+            }
+
+            var $extraContainer = $('<div id="sample-io-extra"></div>');
+            var extraCount = Math.max(inputs.length, outputs.length) - 1;
+            if (extraCount < 0) {
+                extraCount = 0;
+            }
+            for (var i = 0; i < extraCount; i++) {
+                var $pair = $('<div class="sample-io-pair"></div>');
+                $pair.append(buildRow($inputRow, 'input', inputs[i + 1] || ''));
+                $pair.append(buildRow($outputRow, 'output', outputs[i + 1] || ''));
+                $extraContainer.append($pair);
+            }
+
+            var $buttonRow = $('<div class="form-row sample-io-add-row"></div>');
+            var $buttonBox = $('<div class="fieldBox"></div>');
+            var $button = $('<button type="button" class="button" id="sample-io-add">+</button>');
+            var $removeButton = $('<button type="button" class="button" id="sample-io-remove">-</button>');
+            $buttonBox.append($button).append($removeButton);
+            $buttonRow.append($buttonBox);
+            $outputRow.after($buttonRow);
+            $buttonRow.after($extraContainer);
+
+            function updateLabels() {
+                var total = 1 + $extraContainer.find('.sample-io-pair').length;
+                $inputRow.find('label').first().text(formatLabel(inputBase, 1, total));
+                $outputRow.find('label').first().text(formatLabel(outputBase, 1, total));
+                $extraContainer.find('.sample-io-pair').each(function (idx) {
+                    var index = idx + 2;
+                    $(this).find('label').first().text(formatLabel(inputBase, index, total));
+                    $(this).find('label').last().text(formatLabel(outputBase, index, total));
+                });
+            }
+
+            $button.on('click', function () {
+                var $pair = $('<div class="sample-io-pair"></div>');
+                $pair.append(buildRow($inputRow, 'input', ''));
+                $pair.append(buildRow($outputRow, 'output', ''));
+                $extraContainer.append($pair);
+                updateLabels();
+            });
+
+            $removeButton.on('click', function () {
+                var $pairs = $extraContainer.find('.sample-io-pair');
+                if (!$pairs.length) {
+                    return;
+                }
+                $pairs.last().remove();
+                updateLabels();
+            });
+
+            updateLabels();
+
+            $sampleInput.closest('form').on('submit', function () {
+                var allInputs = [$sampleInput.val()];
+                var allOutputs = [$sampleOutput.val()];
+                $extraContainer.find('textarea[data-sample-kind="input"]').each(function () {
+                    allInputs.push($(this).val());
+                });
+                $extraContainer.find('textarea[data-sample-kind="output"]').each(function () {
+                    allOutputs.push($(this).val());
+                });
+
+                while (allInputs.length && !$.trim(allInputs[allInputs.length - 1])) {
+                    allInputs.pop();
+                }
+                while (allOutputs.length && !$.trim(allOutputs[allOutputs.length - 1])) {
+                    allOutputs.pop();
+                }
+
+                $sampleInput.val(allInputs.join(separator));
+                $sampleOutput.val(allOutputs.join(separator));
+            });
+        });
+    </script>
     {% if original and original.pk %}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -64,5 +207,3 @@
         </a>
     {% endif %}
 {% endblock %}
-
-

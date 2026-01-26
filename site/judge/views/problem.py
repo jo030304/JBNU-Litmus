@@ -272,11 +272,30 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
         description = base_description.replace('\\InputFile', '## 입력 설명')
         description = description.replace('\\OutputFile', '## 출력 설명')
 
-        # 예제 입력/출력 추가
-        if self.object.sample_input:
-            description += '\n\n## 예제 입력\n```\n' + self.object.sample_input + '\n```'
-        if self.object.sample_output:
-            description += '\n\n## 예제 출력\n```\n' + self.object.sample_output + '\n```'
+        # 예제 입력/출력 추가 (여러 개 지원)
+        sample_separator = '\n<<<SAMPLE_SPLIT>>>\n'
+
+        def split_samples(value):
+            if not value:
+                return []
+            parts = value.split(sample_separator)
+            return [part for part in parts if part.strip()]
+
+        sample_inputs = split_samples(self.object.sample_input)
+        sample_outputs = split_samples(self.object.sample_output)
+        sample_count = max(len(sample_inputs), len(sample_outputs))
+
+        for idx in range(sample_count):
+            input_value = sample_inputs[idx] if idx < len(sample_inputs) else ''
+            output_value = sample_outputs[idx] if idx < len(sample_outputs) else ''
+            if not input_value.strip() and not output_value.strip():
+                continue
+            if input_value.strip():
+                input_label = '## 예제 입력' if sample_count == 1 else f'## 예제 입력 {idx + 1}'
+                description += f'\n\n{input_label}\n```\n{input_value}\n```'
+            if output_value.strip():
+                output_label = '## 예제 출력' if sample_count == 1 else f'## 예제 출력 {idx + 1}'
+                description += f'\n\n{output_label}\n```\n{output_value}\n```'
 
         context['description'] = description
 
