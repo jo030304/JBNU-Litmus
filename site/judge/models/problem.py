@@ -151,6 +151,10 @@ class Problem(models.Model):
     encrypted_description = models.TextField(verbose_name=_('암호화된 내용'), blank=True, null=True)
     description = models.TextField(verbose_name=_('problem body'), validators=[disallowed_characters_validator],
                                    default=default_decription, null=True)
+    sample_input = models.TextField(verbose_name=_('sample input'), blank=True,
+                                    help_text=_('Sample input for the problem.'))
+    sample_output = models.TextField(verbose_name=_('sample output'), blank=True,
+                                     help_text=_('Sample output for the problem.'))
     authors = models.ManyToManyField(Profile, verbose_name=_('creators'), blank=True, related_name='authored_problems',
                                      help_text=_('These users will be able to edit the problem, '
                                                  'and be listed as authors.'),)

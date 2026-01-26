@@ -208,7 +208,6 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
             return minimal_context
         
         # 암호화되지 않은 문제는 기존대로 처리
-        context['description'] = self.object.description
             
         authed = user.is_authenticated
         context['has_submissions'] = authed and Submission.objects.filter(user=user.profile,
@@ -261,13 +260,25 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
         except ProblemTranslation.DoesNotExist:
             context['title'] = self.object.name
             context['language'] = settings.LANGUAGE_CODE
-            context['description'] = self.object.description
+            base_description = self.object.description
             context['translated'] = False
         else:
             context['title'] = translation.name
             context['language'] = self.request.LANGUAGE_CODE
-            context['description'] = translation.description
+            base_description = translation.description
             context['translated'] = True
+
+        # LaTeX 문법을 마크다운 문법으로 변환
+        description = base_description.replace('\\InputFile', '## 입력 설명')
+        description = description.replace('\\OutputFile', '## 출력 설명')
+
+        # 예제 입력/출력 추가
+        if self.object.sample_input:
+            description += '\n\n## 예제 입력\n```\n' + self.object.sample_input + '\n```'
+        if self.object.sample_output:
+            description += '\n\n## 예제 출력\n```\n' + self.object.sample_output + '\n```'
+
+        context['description'] = description
 
         if not self.object.og_image or not self.object.summary:
             metadata = generate_opengraph('generated-meta-problem:%s:%d' % (context['language'], self.object.id),

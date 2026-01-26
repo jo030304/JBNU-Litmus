@@ -237,6 +237,8 @@ class ProblemForm(ModelForm):
             'types': AdminSelect2MultipleWidget,
             'group': AdminSelect2Widget,
             'description': AdminMartorWidget(attrs={'data-markdownfy-url': reverse_lazy('problem_preview')}),
+            'sample_input': forms.Textarea(attrs={'rows': 4, 'style': 'width: 100%'}),
+            'sample_output': forms.Textarea(attrs={'rows': 4, 'style': 'width: 100%'}),
             'allowed_languages': CheckboxSelectMultipleWithSelectAll(),
         }
  
@@ -494,10 +496,13 @@ class ProblemAdmin(VersionAdmin):
         ('문제 설정', {
             'fields': (
                 'code', 'name', 'date', 'authors', 'testers',
-                ('is_encrypted', 'encryption_key'), 
+                ('is_encrypted', 'encryption_key'),
                 'is_public',
-                'description', 
+                'description',
             ),
+        }),
+        ('입출력 예제', {
+            'fields': ('sample_input', 'sample_output'),
         }),
         # (_('Social Media'), {'classes': ('collapse',), 'fields': ('og_image', 'summary')}),
         (_('Taxonomy'), {'fields': ('group',)}),

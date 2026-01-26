@@ -29,12 +29,7 @@ class ProblemMarkdownPreviewView(MarkdownPreviewView):
             data = data.replace('\\InputFile', '## 입력 설명')
             data = data.replace('\\OutputFile', '## 출력 설명')
 
-            # \begin{problem}{제목}{...}{...}{...}{...} → # 제목
-            data = re.sub(
-                r'\\begin\{problem\}\{([^}]+)\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}',
-                r'# \1',
-                data
-            )
+            # 예제 입력/출력은 preview에 표시하지 않음 (DB 저장만 됨)
 
             self.preview_data = data
         except KeyError:
