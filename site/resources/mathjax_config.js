@@ -1,9 +1,22 @@
 window.MathJax = {
     tex: {
         inlineMath: [
+            ['$', '$'],
             ['~', '~'],
             ['\\(', '\\)']
-        ]
+        ],
+        displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]']
+        ],
+        packages: {'[+]': ['noerrors']},
+        // verbatim 등의 환경을 무시하도록 설정
+        environments: {
+            verbatim: ['text', null, null],
+            itemize: ['text', null, null],
+            enumerate: ['text', null, null]
+        },
+        processEscapes: true
     },
     options: {
         enableMenu: false

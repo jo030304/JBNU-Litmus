@@ -3,6 +3,7 @@ from django.views.generic.base import ContextMixin, TemplateResponseMixin, View
 
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+import re
 
 @method_decorator(csrf_exempt, name='dispatch')
 class MarkdownPreviewView(TemplateResponseMixin, ContextMixin, View):
@@ -20,6 +21,35 @@ class MarkdownPreviewView(TemplateResponseMixin, ContextMixin, View):
 class ProblemMarkdownPreviewView(MarkdownPreviewView):
     template_name = 'problem/preview.html'
 
+    def post(self, request, *args, **kwargs):
+        try:
+            data = request.POST['content']
+
+            # LaTeX 문법을 마크다운 문법으로 변환
+            data = data.replace('\\InputFile', '## 입력 설명')
+            data = data.replace('\\OutputFile', '## 출력 설명')
+
+            # \begin{problem}{제목}{...}{...}{...}{...} → # 제목
+            data = re.sub(
+                r'\\begin\{problem\}\{([^}]+)\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}',
+                r'# \1',
+                data
+            )
+
+            self.preview_data = data
+        except KeyError:
+            return HttpResponseBadRequest('No preview data specified.')
+
+        return self.render_to_response(self.get_context_data(
+            preview_data=data,
+        ))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['MATH_ENGINE'] = 'jax'
+        context['REQUIRE_JAX'] = True
+        return context
+
 
 class BlogMarkdownPreviewView(MarkdownPreviewView):
     template_name = 'blog/preview.html'
@@ -31,6 +61,12 @@ class ContestMarkdownPreviewView(MarkdownPreviewView):
 
 class CommentMarkdownPreviewView(MarkdownPreviewView):
     template_name = 'comments/preview.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['MATH_ENGINE'] = 'jax'
+        context['REQUIRE_JAX'] = True
+        return context
 
 
 class FlatPageMarkdownPreviewView(MarkdownPreviewView):
@@ -47,6 +83,12 @@ class ProfileMarkdownPreviewView(MarkdownPreviewView):
 
 class SolutionMarkdownPreviewView(MarkdownPreviewView):
     template_name = 'solution-preview.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['MATH_ENGINE'] = 'jax'
+        context['REQUIRE_JAX'] = True
+        return context
 
 
 class LicenseMarkdownPreviewView(MarkdownPreviewView):
