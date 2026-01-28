@@ -5,109 +5,6 @@
     }
     factory(jq);
 })(window, function ($) {
-    function initSampleIoEditor() {
-        var $sampleInput = $('#id_sample_input');
-        var $sampleOutput = $('#id_sample_output');
-        if (!$sampleInput.length || !$sampleOutput.length) {
-            return;
-        }
-        if ($sampleInput.data('multiSampleInit')) {
-            return;
-        }
-        $sampleInput.data('multiSampleInit', true);
-
-        var sampleSeparator = '\n<<<SAMPLE_SPLIT>>>\n';
-        var $inputRow = $sampleInput.closest('.form-row');
-        var $outputRow = $sampleOutput.closest('.form-row');
-        if (!$inputRow.length || !$outputRow.length) {
-            return;
-        }
-
-        var inputLabelBase = $.trim($inputRow.find('label').first().text()) || 'Sample input';
-        var outputLabelBase = $.trim($outputRow.find('label').first().text()) || 'Sample output';
-
-        function splitSamples(value) {
-            if (!value) {
-                return [];
-            }
-            return value.split(sampleSeparator).filter(function (item) {
-                return $.trim(item);
-            });
-        }
-
-        function updateLabels() {
-            var $pairs = $container.find('.sample-io-pair');
-            var total = $pairs.length + 1;
-            var inputLabel = total === 1 ? inputLabelBase : inputLabelBase + ' 1';
-            var outputLabel = total === 1 ? outputLabelBase : outputLabelBase + ' 1';
-            $inputRow.find('label').first().text(inputLabel);
-            $outputRow.find('label').first().text(outputLabel);
-            $pairs.each(function (idx) {
-                var index = idx + 2;
-                $(this).find('.sample-io-input label').first().text(inputLabelBase + ' ' + index);
-                $(this).find('.sample-io-output label').first().text(outputLabelBase + ' ' + index);
-            });
-        }
-
-        function cloneRow($row, kind, value) {
-            var $clone = $row.clone(false, false);
-            $clone.find('textarea').val(value || '')
-                .removeAttr('id')
-                .removeAttr('name')
-                .attr('data-sample-kind', kind);
-            $clone.find('label').removeAttr('for');
-            $clone.find('.help').remove();
-            $clone.find('.errorlist').remove();
-            $clone.addClass(kind === 'input' ? 'sample-io-input' : 'sample-io-output');
-            return $clone;
-        }
-
-        var sampleInputs = splitSamples($sampleInput.val());
-        var sampleOutputs = splitSamples($sampleOutput.val());
-        var extraCount = Math.max(sampleInputs.length, sampleOutputs.length) - 1;
-        if (extraCount < 0) {
-            extraCount = 0;
-        }
-
-        var $container = $('<div class="sample-io-container"></div>');
-        for (var i = 0; i < extraCount; i++) {
-            var inputValue = sampleInputs[i + 1] || '';
-            var outputValue = sampleOutputs[i + 1] || '';
-            var $pair = $('<div class="sample-io-pair"></div>');
-            $pair.append(cloneRow($inputRow, 'input', inputValue));
-            $pair.append(cloneRow($outputRow, 'output', outputValue));
-            $container.append($pair);
-        }
-
-        var $addButton = $('<button type="button" class="button" style="margin-top: 8px;">+</button>');
-        $addButton.on('click', function () {
-            var $pair = $('<div class="sample-io-pair"></div>');
-            $pair.append(cloneRow($inputRow, 'input', ''));
-            $pair.append(cloneRow($outputRow, 'output', ''));
-            $container.append($pair);
-            updateLabels();
-        });
-
-        var $controls = $('<div class="sample-io-controls" style="text-align: center;"></div>')
-            .append($addButton);
-        $container.append($controls);
-        $outputRow.after($container);
-        updateLabels();
-
-        $sampleInput.closest('form').on('submit', function () {
-            var inputs = [$sampleInput.val()];
-            var outputs = [$sampleOutput.val()];
-            $container.find('textarea[data-sample-kind="input"]').each(function () {
-                inputs.push($(this).val());
-            });
-            $container.find('textarea[data-sample-kind="output"]').each(function () {
-                outputs.push($(this).val());
-            });
-            $sampleInput.val(inputs.join(sampleSeparator));
-            $sampleOutput.val(outputs.join(sampleSeparator));
-        });
-    }
-
     $(document).on('martor:preview', function (e, $content) {
         // LaTeX 문서 구조를 HTML로 변환하는 함수
         function convertLatexToHtml(html) {
@@ -229,5 +126,4 @@
         }
     })
 
-    $(initSampleIoEditor);
 });
