@@ -54,7 +54,7 @@
                 });
             }
 
-            function buildRow($row, kind, value) {
+            function buildRow($row, kind, value, addDeleteButton) {
                 var $clone = $row.clone(false, false);
                 $clone.find('textarea').val(value || '')
                     .removeAttr('id')
@@ -62,6 +62,17 @@
                     .attr('data-sample-kind', kind);
                 $clone.find('label').removeAttr('for');
                 $clone.find('.help, .errorlist').remove();
+
+                // input에만 삭제 버튼 추가
+                if (kind === 'input' && addDeleteButton) {
+                    $clone.css('position', 'relative');
+                    // 레이블과 같은 라인에 배치
+                    var $label = $clone.find('label').first();
+                    $label.css({'display': 'inline-block', 'line-height': '24px'});
+                    var $deleteBtn = $('<button type="button" class="sample-delete-btn" style="background: #dc3545; color: white; border: none; border-radius: 4px; width: 24px; height: 24px; cursor: pointer; font-size: 16px; font-weight: bold; line-height: 1; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; margin-left: 8px; vertical-align: middle; box-shadow: 0 1px 3px rgba(220, 53, 69, 0.3);">×</button>');
+                    $label.after($deleteBtn);
+                }
+
                 return $clone;
             }
 
@@ -84,19 +95,18 @@
             }
             for (var i = 0; i < extraCount; i++) {
                 var $pair = $('<div class="sample-io-pair"></div>');
-                $pair.append(buildRow($inputRow, 'input', inputs[i + 1] || ''));
-                $pair.append(buildRow($outputRow, 'output', outputs[i + 1] || ''));
+                $pair.append(buildRow($inputRow, 'input', inputs[i + 1] || '', true));
+                $pair.append(buildRow($outputRow, 'output', outputs[i + 1] || '', false));
                 $extraContainer.append($pair);
             }
 
-            var $buttonRow = $('<div class="form-row sample-io-add-row"></div>');
-            var $buttonBox = $('<div class="fieldBox"></div>');
-            var $button = $('<button type="button" class="button" id="sample-io-add">+</button>');
-            var $removeButton = $('<button type="button" class="button" id="sample-io-remove">-</button>');
-            $buttonBox.append($button).append($removeButton);
-            $buttonRow.append($buttonBox);
-            $outputRow.after($buttonRow);
-            $buttonRow.after($extraContainer);
+            // + 버튼을 전체 너비로 생성 (label 영역 제거)
+            var $buttonWrapper = $('<div class="sample-io-add-row" style="margin-top: 15px;"></div>');
+            var $buttonField = $('<button type="button" class="button sample-io-btn" id="sample-io-add" style="background: #5b9bd5; color: white; border: none; border-radius: 8px; padding: 18px; cursor: pointer; font-size: 15px; font-weight: 500; transition: all 0.3s ease; width: 100%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(91, 155, 213, 0.25); position: relative; overflow: hidden;">+ Add Test Case</button>');
+            $buttonWrapper.append($buttonField);
+            // container를 먼저 추가하고 버튼을 그 뒤에 추가
+            $outputRow.after($extraContainer);
+            $extraContainer.after($buttonWrapper);
 
             function updateLabels() {
                 var total = 1 + $extraContainer.find('.sample-io-pair').length;
@@ -109,20 +119,17 @@
                 });
             }
 
-            $button.on('click', function () {
+            $buttonField.on('click', function () {
                 var $pair = $('<div class="sample-io-pair"></div>');
-                $pair.append(buildRow($inputRow, 'input', ''));
-                $pair.append(buildRow($outputRow, 'output', ''));
+                $pair.append(buildRow($inputRow, 'input', '', true));
+                $pair.append(buildRow($outputRow, 'output', '', false));
                 $extraContainer.append($pair);
                 updateLabels();
             });
 
-            $removeButton.on('click', function () {
-                var $pairs = $extraContainer.find('.sample-io-pair');
-                if (!$pairs.length) {
-                    return;
-                }
-                $pairs.last().remove();
+            // 삭제 버튼 이벤트 (동적으로 추가된 버튼에도 작동)
+            $extraContainer.on('click', '.sample-delete-btn', function () {
+                $(this).closest('.sample-io-pair').remove();
                 updateLabels();
             });
 
@@ -180,7 +187,7 @@
         .datetime input.vTimeField {
             margin-right: 10px;
         }
-        
+
         .datetime .datetimeshortcuts {
             margin-right: 10px;
         }
@@ -193,6 +200,47 @@
             padding: 5px 10px;
             font-size: 14px;
             cursor: pointer;
+        }
+        
+        /* 예제 추가 버튼 디자인 */
+        #sample-io-add {
+            position: relative;
+        }
+        #sample-io-add::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        #sample-io-add:hover {
+            background: #4a8bc2 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(91, 155, 213, 0.35) !important;
+        }
+        #sample-io-add:hover::before {
+            opacity: 1;
+        }
+        #sample-io-add:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(91, 155, 213, 0.3) !important;
+        }
+        
+        /* 예제 삭제 버튼 (×) 디자인 */
+        .sample-delete-btn {
+            position: relative;
+        }
+        .sample-delete-btn:hover {
+            background: #c82333 !important;
+            transform: scale(1.15);
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.5) !important;
+        }
+        .sample-delete-btn:active {
+            transform: scale(1.05);
         }
     </style>
     

@@ -273,13 +273,13 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
         description = description.replace('\\OutputFile', '## 출력 설명')
 
         # 예제 입력/출력 추가 (여러 개 지원)
-        sample_separator = '\n<<<SAMPLE_SPLIT>>>\n'
-
         def split_samples(value):
             if not value:
                 return []
-            parts = value.split(sample_separator)
-            return [part for part in parts if part.strip()]
+            # 윈도우(\r\n)와 유닉스(\n) 줄바꿈 모두 처리
+            import re
+            parts = re.split(r'[\r\n]+<<<SAMPLE_SPLIT>>>[\r\n]+', value)
+            return [part.strip() for part in parts if part.strip()]
 
         sample_inputs = split_samples(self.object.sample_input)
         sample_outputs = split_samples(self.object.sample_output)
