@@ -61,7 +61,7 @@
                     .removeAttr('name')
                     .attr('data-sample-kind', kind);
                 $clone.find('label').removeAttr('for');
-                $clone.find('.help, .errorlist').remove();
+                $clone.find('.errorlist').remove();
 
                 // input에만 삭제 버튼 추가
                 if (kind === 'input' && addDeleteButton) {
@@ -112,10 +112,14 @@
                 var total = 1 + $extraContainer.find('.sample-io-pair').length;
                 $inputRow.find('label').first().text(formatLabel(inputBase, 1, total));
                 $outputRow.find('label').first().text(formatLabel(outputBase, 1, total));
+                $inputRow.find('.help').first().text(total === 1 ? 'Sample input for the problem.' : 'Sample input 1 for the problem.');
+                $outputRow.find('.help').first().text(total === 1 ? 'Sample output for the problem.' : 'Sample output 1 for the problem.');
                 $extraContainer.find('.sample-io-pair').each(function (idx) {
                     var index = idx + 2;
                     $(this).find('label').first().text(formatLabel(inputBase, index, total));
                     $(this).find('label').last().text(formatLabel(outputBase, index, total));
+                    $(this).find('.help').first().text('Sample input ' + index + ' for the problem.');
+                    $(this).find('.help').last().text('Sample output ' + index + ' for the problem.');
                 });
             }
 
