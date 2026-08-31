@@ -886,7 +886,9 @@ class ContestDetail(ContestMixin, TitleMixin, ContestAutoJoinMixin, CommentedDet
             virtual=0, user=self.request.profile, contest_id=self.object.id
         ).exists()
 
-        contest_problems = Problem.objects.filter(contests__contest=self.object) \
+        contest_problems = Problem.get_visible_problems(self.request.user) \
+            .filter(contests__contest=self.object) \
+            .distinct() \
             .order_by('contests__order').defer('description') \
             .annotate(
                 has_public_editorial=Case(

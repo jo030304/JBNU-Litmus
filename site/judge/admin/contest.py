@@ -72,6 +72,22 @@ class ContestTagAdmin(admin.ModelAdmin):
 
 
 class ContestProblemInlineForm(ModelForm):
+    ta_permission_targets = forms.ModelMultipleChoiceField(
+        queryset=Profile.objects.none(),
+        label='TA 권한 허용 대상',
+        help_text='이 문제에 접근 권한을 허용할 TA만 선택하세요. 과제의 TA 목록에서만 선택할 수 있습니다.',
+        required=False,
+        widget=AdminHeavySelect2MultipleWidget(data_view='profile_select2'),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        contest = getattr(self.instance, 'contest', None) or getattr(self, 'contest', None)
+        if contest is not None:
+            self.fields['ta_permission_targets'].queryset = contest.curators.all()
+        else:
+            self.fields['ta_permission_targets'].queryset = Profile.objects.none()
+
     class Meta:
         widgets = {'problem': AdminHeavySelect2Widget(data_view='problem_select2')}
 
@@ -80,7 +96,7 @@ class ContestProblemInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ContestProblem
     verbose_name = _('Problem')
     verbose_name_plural = _('Problems')
-    fields = ('problem', 'points', 'partial',  'order',
+    fields = ('problem', 'points', 'partial', 'order', 'ta_permission_targets',
               'rejudge_column')
     readonly_fields = ('rejudge_column',)
     form = ContestProblemInlineForm
