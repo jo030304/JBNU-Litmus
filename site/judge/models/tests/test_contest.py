@@ -1,9 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.forms import modelform_factory
+from django.test import RequestFactory
 from django.test import SimpleTestCase, TestCase
 from django.utils import timezone
 
-from judge.models import Contest, ContestParticipation, ContestProblem, ContestTag, Language
+from judge.models import Contest, ContestParticipation, ContestProblem, ContestTag, Language, Problem
 from judge.models.contest import MinValueOrNoneValidator
 from judge.models.tests.util import CommonDataMixin, create_contest, create_contest_participation, create_problem, create_user
 
@@ -22,6 +23,7 @@ class ContestProblemTaPermissionTestCase(TestCase):
         cls.allowed_ta = create_user(username='allowed_ta')
         cls.denied_ta = create_user(username='denied_ta')
         cls.outsider = create_user(username='outsider_ta')
+        cls.superuser = create_user(username='problem_superuser', is_staff=True, is_superuser=True)
         cls.contest = Contest(
             name='TA permission contest',
             start_time=timezone.now() - timezone.timedelta(days=1),
@@ -98,6 +100,22 @@ class ContestProblemTaPermissionTestCase(TestCase):
             transform=lambda profile: profile,
             ordered=False,
         )
+
+    def test_problem_curators_field_is_only_visible_to_superusers(self):
+        from django.contrib.admin.sites import AdminSite
+        from judge.admin.problem import ProblemAdmin
+
+        problem_admin = ProblemAdmin(Problem, AdminSite())
+        request = RequestFactory().get('/admin/judge/problem/')
+
+        request.user = self.allowed_ta
+        regular_form = problem_admin.get_form(request, obj=self.problem)
+        self.assertNotIn('curators', regular_form.base_fields)
+
+        request.user = self.superuser
+        superuser_form = problem_admin.get_form(request, obj=self.problem)
+        self.assertIn('curators', superuser_form.base_fields)
+        self.assertEqual(superuser_form(instance=self.problem).fields['curators'].label, '문제 공동 관리자')
 
 
 class ContestTestCase(CommonDataMixin, TestCase):
