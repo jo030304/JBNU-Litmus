@@ -907,14 +907,7 @@ class ContestDetail(ContestMixin, TitleMixin, ContestAutoJoinMixin, CommentedDet
                 contests__contest=self.object,
                 pk__in=visible_contest_problems.values('problem_id')
             ).distinct() \
-            .order_by('contests__order').defer('description') \
-            .annotate(
-                has_public_editorial=Case(
-                    When(solution__is_public=True, solution__publish_on__lte=timezone.now(), then=True),
-                    default=False,
-                    output_field=BooleanField(),
-                )
-            )
+            .order_by('contests__order').defer('description')
 
         problem_stats = (
             Submission.objects.filter(contest_object_id=self.object.id)
@@ -951,11 +944,7 @@ class ContestDetail(ContestMixin, TitleMixin, ContestAutoJoinMixin, CommentedDet
 
         context['contest_problems'] = contest_problems
 
-        context['metadata'] = {
-            'has_public_editorials': any(
-                problem.is_public and problem.has_public_editorial for problem in contest_problems
-            ),
-        }
+        context['metadata'] = {}
         context['metadata'].update(
             **self.object.contest_problems
             .annotate(
